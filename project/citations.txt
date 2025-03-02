@@ -1,0 +1,191 @@
+Citations
+
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+generative approach for self-supervised learning from images. The idea behind I-JEPA is simple: from a single context block, predict the representations of various target blocks in the same image. A core design choice to guide I-JEPA towards producing semantic representations is the masking strategy; specifically, it is crucial to (a) sample target blocks with sufficiently large scale (semantic), and to (b) use a sufficiently informative (spatially distributed) context block. Empirically, when combined with Vision Transformers, we find I-JEPA to be highly scalable. For instance, we train a ViT-Huge/14 on ImageNet using 16 A100 GPUs in under 72 hours to achieve strong downstream performance across a wide range of tasks, from linear classification to object
+encord.com
+Meta AI’s I-JEPA Explained  | Encord
+Context Block
+encord.com
+Meta AI’s I-JEPA Explained  | Encord
+Prediction
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Compared to generative methods that predict in pixel/token space, I-JEPA makes use of abstract prediction targets for which unnecessary pixel-level details are potentially eliminated, thereby leading the model to learn more semantic features. Another core design choice to guide I-JEPA towards producing semantic
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+various target blocks in the same image. A core design choice to guide I-JEPA towards producing semantic representations is the masking strategy; specifically, it is crucial to (a) sample target blocks with sufficiently large scale (semantic), and to (b) use a sufficiently informative (spatially distributed) context block. Empirically, when combined with Vision Transformers, we find I-JEPA to be highly scalable. For instance, we train a ViT-Huge/14 on ImageNet using 16 A100 GPUs in under 72 hours to achieve strong downstream performance across a wide range of tasks, from linear classification to object counting and depth prediction.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+potentially eliminated, thereby leading the model to learn more semantic features. Another core design choice to guide I-JEPA towards producing semantic representations is the proposed multi-block masking strategy. Specifically, we demonstrate the importance of predicting sufficiently large target blocks in the image, using an informative (spatially distributed) context block.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+we find I-JEPA to be highly scalable. For instance, we train a ViT-Huge/14 on ImageNet using 16 A100 GPUs in under 72 hours to achieve strong downstream performance across a wide range of tasks, from linear classification to object counting and depth prediction.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+I-JEPA learns strong off-the-shelf representations without the use of hand- crafted view augmentations (cf. Fig.1). I-JEPA outperforms pixel-reconstruction methods such as MAE [36] on ImageNet-1K linear probing, semi-supervised 1% ImageNet-1K, and semantic transfer tasks.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+core of self-supervised generative methods, which remove or corrupt portions of the input and learn to predict the corrupted content [67 , 11, 36 , 20, 71 , 22]. In particular, mask-denoising approaches learn representations by reconstructing randomly masked patches from an input, either at the pixel or token level. Masked pretraining tasks require less prior knowledge than view-invariance approaches and easily generalize beyond the image modality [8]. However, the resulting representations are typically of a lower semantic level and underperform invariance-based pretraining in off-the- shelf evaluations (e.g., linear-probing) and in transfer settings with limited
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Compared to generative methods that predict in pixel/token space, I-JEPA makes use of abstract prediction targets for which unnecessary pixel-level details are potentially eliminated, thereby leading the model to learn more semantic features. Another core design choice to guide I-JEPA towards producing semantic
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Invariance-based pretraining methods optimize an encoder to produce similar embeddings for two or more views of the same image [15 , 14], with image views typically constructed using a set of hand-crafted data augmentations, such as random scaling, cropping, and color jittering [20 ], amongst others [ 4]. These pretraining methods can produce representations of a high semantic level [18 , 0], but they also introduce strong biases that may be detrimental for certain downstream tasks or even for pretraining tasks with different data distributions [2]. Often, it is unclear how to generalize these biases for tasks requiring different levels of abstraction. For
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+The main challenge with JEAs is representation collapse, wherein the energy landscape is flat (i.e., the encoder produces a constant output regardless of the input). During the past few years, several approaches have been investigated to prevent representation collapse, such as contrastive losses that explicitly push apart embeddings of negative examples [15 , 1, 24 ], non- contrastive losses that minimize the informational redundancy across embeddings [ 6, 10 ], and clustering-based approaches that maximize the entropy of the average embedding [ 5, 5 , 0]. There are also heuristic approaches that leverage an asymmetric architectural design between the -encoder and -encoder to avoid collapse [24 , 4, 8].
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+masked unknown regions, our self-supervised world models predict Bird's Eye View (BEV) embeddings to represent the diverse nature of autonomous driving scenes. Our approach furthermore eliminates the need to manually create positive and negative pairs, as is the case in contrastive learning. AD-L-JEPA leads to simpler implementation and enhanced learned representations. We qualitatively
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+Predictive Architecture), a novel self-supervised pre-training framework for autonomous driving with LiDAR data that, as opposed to existing methods, is neither generative nor contrastive. Our method learns spatial world models with a joint embedding predictive architecture. Instead of explicitly generating masked unknown regions, our self-supervised world models predict Bird's Eye View (BEV) embeddings to represent the diverse nature of autonomous driving scenes. Our approach furthermore eliminates the need to manually create positive and negative pairs, as is the case in contrastive learning. AD-L-JEPA leads to simpler implementation and enhanced learned representations. We qualitatively
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Image: Refer to caption (a) Joint-Embedding Architecture
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Architectures learn to output similar embeddings for compatible inputs and dissimilar embeddings for incompatible inputs. (b) Generative Architectures learn to directly reconstruct a signal from a compatible signal , using a decoder network that is conditioned on additional (possibly latent) variables to facilitate reconstruction. (c) Joint-Embedding Predictive Architectures learn to predict the embeddings of a signal from a compatible signal , using a predictor network that is conditioned on additional (possibly latent) variables to facilitate prediction.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+either at the pixel or token level. Masked pretraining tasks require less prior knowledge than view-invariance approaches and easily generalize beyond the image modality [8 ]. However, the resulting representations are typically of a lower semantic level and underperform invariance-based pretraining in off-the- shelf evaluations (e.g., linear-probing) and in transfer settings with limited supervision for semantic classification tasks [ 0]. Consequently, a more involved adaptation mechanism (e.g., end-to-end fine-tuning) is required to reap the full advantage of these methods.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+I-JEPA learns strong off-the-shelf representations without the use of hand- crafted view augmentations (cf. Fig.1). I-JEPA outperforms pixel-reconstruction methods such as MAE [36] on ImageNet-1K linear probing, semi-supervised 1% ImageNet-1K, and semantic transfer tasks.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+image views typically constructed using a set of hand-crafted data augmentations, such as random scaling, cropping, and color jittering [20 ], amongst others [ 4]. These pretraining methods can produce representations of a high semantic level [18 , 0], but they also introduce strong biases that may be detrimental for certain downstream tasks or even for pretraining tasks with different data distributions [2 ]. Often, it is unclear how to generalize these biases for tasks requiring different levels of abstraction. For example, image classification and instance segmentation do not require the same invariances [ 16]. Additionally, it is not straightforward to generalize
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+semantic image representations. The work on MSN [4], uses masking as an additional data-augmentation during pretraining, while iBOT combines a data2vec- style patch-level reconstruction loss with the DINO view-invariance loss. Common to these approaches is the need to process multiple user-generated views of each input image, thereby hindering scalability. By contrast, I-JEPA only requires processing a single view of each image. We find that a ViT-Huge/14 trained with I-JEPA requires less computational effort than a ViT-Small/16 trained with iBOT.
+encord.com
+Meta AI’s I-JEPA Explained  | Encord
+The target block represents the image blocks' representation and is predicted using a single context block. These representations are generated by the target encoder, and their weights are updated during each iteration of the context block using an exponential moving average algorithm based on the context weights. To obtain the target blocks, masking is applied to the output of the target encoder, rather than the input.
+encord.com
+Meta AI’s I-JEPA Explained  | Encord
+gradient-based optimization while the parameters of the target encoder are learned using the exponential moving average of the context-encoder parameters.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+style patch-level reconstruction loss with the DINO view-invariance loss. Common to these approaches is the need to process multiple user-generated views of each input image, thereby hindering scalability. By contrast, I-JEPA only requires processing a single view of each image. We find that a ViT-Huge/14 trained with I-JEPA requires less computational effort than a ViT-Small/16 trained with iBOT.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+I-JEPA is also scalable and efficient (Section 7 ). Pre-training a ViT-H/14 on ImageNet requires less than 1200 GPU hours, which is over faster than a ViT-S/16 pretrained with iBOT[ 27] and over more efficient than a ViT-H/14 pretrained with MAE. Predicting in representation space significantly reduces the total computation needed for self-supervised pretraining.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+I-JEPA is also scalable and efficient (Section 7 ). Pre-training a ViT-H/14 on ImageNet requires less than 1200 GPU hours, which is over faster than a ViT-S/16 pretrained with iBOT[ 27] and over more efficient than a ViT-H/14 pretrained with MAE. Predicting in representation space significantly reduces the total computation needed for self-supervised pretraining.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+amongst others [35 ]. These pretraining methods can produce representations of a high semantic level [ 5, 4 ], but they also introduce strong biases that may be detrimental for certain downstream tasks or even for pretraining tasks with different data distributions [ 15]. Often, it is unclear how to generalize these biases for tasks requiring different levels of abstraction. For example, image classification and instance segmentation do not require the same invariances [11]. Additionally, it is not straightforward to generalize
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+I-JEPA is competitive with view-invariant pretraining approaches on semantic tasks and achieves better performance on low-level visions tasks such as object counting and depth prediction (Sections 5 and  25). By using a simpler model with less rigid inductive bias, I-JEPA is applicable to a wider set of tasks.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+of a high semantic level [18 , 0], but they also introduce strong biases that may be detrimental for certain downstream tasks or even for pretraining tasks with different data distributions [2 ]. Often, it is unclear how to generalize these biases for tasks requiring different levels of abstraction. For example, image classification and instance segmentation do not require the same invariances [ 16]. Additionally, it is not straightforward to generalize these image-specific augmentations to other modalities such as audio.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+generalize these biases for tasks requiring different levels of abstraction. For example, image classification and instance segmentation do not require the same invariances [11]. Additionally, it is not straightforward to generalize these image-specific augmentations to other modalities such as audio.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+modality [8 ]. However, the resulting representations are typically of a lower semantic level and underperform invariance-based pretraining in off-the- shelf evaluations (e.g., linear-probing) and in transfer settings with limited supervision for semantic classification tasks [ 0]. Consequently, a more involved adaptation mechanism (e.g., end-to-end fine-tuning) is required to reap the full advantage of these methods.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+iBOT [79 ] ViT-B/16 400 69.7 DINO [ 5] ViT-B/8 300 70.0 SimCLR v2 [35 ] RN151 () 800 70.2 BYOL [ 4] RN200 () 800 71.2 MSN [4] ViT-B/4 300 75.7 Table 2: ImageNet-1%. Semi-supervised evaluation on ImageNet-1K using only 1% of the available labels. Models are adapted via fine-tuning or linear-probing, depending on whichever works best for each respective method. ViT-H/16448 is pretrained at at a resolution of . I-JEPA pretraining outperforms MAE which also
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+MSN [4] ViT-B/4 300 75.7 Table 2: ImageNet-1%. Semi-supervised evaluation on ImageNet-1K using only 1% of the available labels. Models are adapted via fine-tuning or linear-probing, depending on whichever works best for each respective method. ViT-H/16448 is pretrained at at a resolution of . I-JEPA pretraining outperforms MAE which also does not rely on hand-crafted data-augmentations during pretraining. Moreover, I-JEPA benefits from scale. A ViT-H/16 trained at resolution surpasses previous methods including methods that leverage extra hand-crafted data-augmentations.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Methods using extra view data augmentations SimCLR v2 [21 ] RN152 () 800 79.1 DINO [ 5] ViT-B/8 300 80.1 iBOT [79] ViT-L/16 250 81.0 Table 1: ImageNet. Linear-evaluation on ImageNet-1k (the ViT-H/16448 is pretrained at at a resolution of ). I-JEPA improves linear probing performance compared to other methods that do not rely on hand-crafted view data- augmentations during pretraining. Moreover, I-JEPA demonstrates good scalability — the larger I-JEPA model matches the performance of view-invariance approaches
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+pretrained at at a resolution of . I-JEPA pretraining outperforms MAE which also does not rely on hand-crafted data-augmentations during pretraining. Moreover, I-JEPA benefits from scale. A ViT-H/16 trained at resolution surpasses previous methods including methods that leverage extra hand-crafted data-augmentations.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Method Arch. Epochs Top-1 Methods without view data augmentations data2vec [8 ] ViT-L/16 1600 77.3 MAE [ 12] ViT-B/16 1600 68.0 ViT-L/16 1600 76.0 ViT-H/14 1600 77.2 CAE [22] ViT-B/16 1600 70.4 ViT-L/16 1600 78.1 I-JEPA ViT-B/16 600 72.9
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+Table 1: ImageNet. Linear-evaluation on ImageNet-1k (the ViT-H/16448 is pretrained at at a resolution of ). I-JEPA improves linear probing performance compared to other methods that do not rely on hand-crafted view data- augmentations during pretraining. Moreover, I-JEPA demonstrates good scalability — the larger I-JEPA model matches the performance of view-invariance approaches without requiring view data-augmentations.
+ar5iv.labs.arxiv.org
+[2301.08243] Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+tasks and achieves better performance on low-level visions tasks such as object counting and depth prediction (Sections 5 and  25). By using a simpler model with less rigid inductive bias, I-JEPA is applicable to a wider set of tasks.
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+[Submitted on 9 Jan 2025]
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+> Abstract:As opposed to human drivers, current autonomous driving systems still require vast amounts of labeled data to train. Recently, world models have been proposed to simultaneously enhance autonomous driving capabilities by improving the way these systems understand complex real-world environments and reduce their data demands via self-supervised pre-training. In this paper, we present AD-L-JEPA (aka Autonomous Driving with LiDAR data via a Joint Embedding Predictive Architecture), a novel self-supervised pre-training framework for autonomous driving with LiDAR data that, as opposed to existing methods, is neither generative nor contrastive. Our method learns spatial world models with
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+Predictive Architecture), a novel self-supervised pre-training framework for autonomous driving with LiDAR data that, as opposed to existing methods, is neither generative nor contrastive. Our method learns spatial world models with a joint embedding predictive architecture. Instead of explicitly generating masked unknown regions, our self-supervised world models predict Bird's Eye View (BEV) embeddings to represent the diverse nature of autonomous driving scenes. Our approach furthermore eliminates the need to manually create positive and negative pairs, as is the case in contrastive learning. AD-L-JEPA leads to
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+neither generative nor contrastive. Our method learns spatial world models with a joint embedding predictive architecture. Instead of explicitly generating masked unknown regions, our self-supervised world models predict Bird's Eye View (BEV) embeddings to represent the diverse nature of autonomous driving scenes. Our approach furthermore eliminates the need to manually create positive and negative pairs, as is the case in contrastive learning. AD-L-JEPA leads to simpler implementation and enhanced learned representations. We qualitatively
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+simpler implementation and enhanced learned representations. We qualitatively and quantitatively demonstrate high-quality of embeddings learned with AD-L- JEPA. We furthermore evaluate the accuracy and label efficiency of AD-L-JEPA on popular downstream tasks such as LiDAR 3D object detection and associated transfer learning. Our experimental evaluation demonstrates that AD-L-JEPA is a plausible approach for self-supervised pre-training in autonomous driving
+arxiv.org
+[2501.04969] AD-L-JEPA: Self-Supervised Spatial World Models with Joint Embedding Predictive Architecture for Autonomous Driving with LiDAR Data
+JEPA. We furthermore evaluate the accuracy and label efficiency of AD-L-JEPA on popular downstream tasks such as LiDAR 3D object detection and associated transfer learning. Our experimental evaluation demonstrates that AD-L-JEPA is a plausible approach for self-supervised pre-training in autonomous driving applications and is the best available approach outperforming SOTA, including most recently proposed Occupancy-MAE [1] and ALSO [2]. The source code of AD-L- JEPA is available at this https URL.
+arxiv.org
+A Survey of World Models for Autonomous Driving
+JEPA [137] introduces a self-supervised framework for autonomous driving using LiDAR data, leveraging a Joint Embedding Predictive Architecture (JEPA) to learn spatial world models by predicting BEV embeddings, eliminating generative/contrastive mechanisms and explicit data reconstruction while
+arxiv.org
+A Survey of World Models for Autonomous Driving
+capturing occluded or uncertain environmental details. AD-L-JEPA achieves faster pre-training than SOTA approaches (e.g., Occupancy-MAE [138], ALSO [139]) by avoiding contrastive pair curation and generative overhead, while demonstrating robust transfer learning even with partially randomized
+arxiv.org
+[2407.10803] DINO Pre-training for Vision-based End-to-end Autonomous Driving
+> Abstract:In this article, we focus on the pre-training of visual autonomous driving agents in the context of imitation learning. Current methods often rely on a classification-based pre-training, which we hypothesise to be holding back from extending capabilities of implicit image understanding. We propose pre- training the visual encoder of a driving agent using the self-distillation with no labels (DINO) method, which relies on a self-supervised learning paradigm.% and is trained on an unrelated task. Our experiments in CARLA environment in accordance with the Leaderboard benchmark reveal that the proposed pre-training is more efficient than classification-based pre-training, and is on par with the
+researchgate.net
+(PDF) ACT-JEPA: Joint-Embedding Predictive Architecture Improves Policy Representation Learning
+we propose ACT-JEPA, a novel architecture that integrates IL and SSL to enhance policy representations. We train a policy to predict (1) action sequences and (2) abstract observation sequences. The first objective uses action chunking to improve action prediction and reduce compounding errors. The second objective extends this idea of chunking by predicting abstract observation sequences. We utilize Joint-Embedding Predictive Architecture to predict in abstract representation space, allowing the model to filter out irrelevant details, improve efficiency, and develop a robust world model. Our experiments show that ACT-JEPA improves the quality of representations by learning temporal environment dynamics. Additionally, the model's ability to predict abstract
+researchgate.net
+(PDF) ACT-JEPA: Joint-Embedding Predictive Architecture Improves Policy Representation Learning
+representation space, allowing the model to filter out irrelevant details, improve efficiency, and develop a robust world model. Our experiments show that ACT-JEPA improves the quality of representations by learning temporal environment dynamics. Additionally, the model's ability to predict abstract observation sequences results in representations that effectively generalize to action sequence prediction. ACT-JEPA performs on par with established baselines across a range of decision-making tasks.
+arxiv.org
+A Survey of World Models for Autonomous Driving
+JEPA [137] introduces a self-supervised framework for autonomous driving using LiDAR data, leveraging a Joint Embedding Predictive Architecture (JEPA) to learn spatial world models by predicting BEV embeddings, eliminating generative/contrastive mechanisms and explicit data reconstruction while
+arxiv.org
+Think2Drive: Efficient Reinforcement Learning by Thinking with Latent World Model for Autonomous Driving (in CARLA-v2)
+so far no literature has reported any success on the new scenarios in V2. In this work, we take the initiative of directly training a neural planner and the hope is to handle the corner cases flexibly and effectively. To our best knowledge, we develop the first model-based RL method (named Think2Drive) for AD, with a compact latent world model to learn the transitions of the environment, and then it acts as a neural simulator to train the agent i.e. planner. It significantly boosts the training efficiency of RL thanks to the low dimensional state space and parallel computing of tensors in the latent world model. Think2Drive is able to run in an expert-level proficiency in CARLA v2
+arxiv.org
+Think2Drive: Efficient Reinforcement Learning by Thinking with Latent World Model for Autonomous Driving (in CARLA-v2)
+far there is no reported success (100% route completion) on CARLA v2. We also develop CornerCaseRepo, a benchmark that supports the evaluation of driving models by scenarios. We also propose a balanced metric to evaluate the performance by route completion, infraction number, and scenario density.
+researchgate.net
+(PDF) ACT-JEPA: Joint-Embedding Predictive Architecture Improves Policy Representation Learning
+extends this idea of chunking by predicting abstract observation sequences. We utilize Joint-Embedding Predictive Architecture to predict in abstract representation space, allowing the model to filter out irrelevant details, improve efficiency, and develop a robust world model. Our experiments show that ACT-JEPA improves the quality of representations by learning temporal environment dynamics. Additionally, the model's ability to predict abstract observation sequences results in representations that effectively generalize to action sequence prediction. ACT-JEPA performs on par with established baselines across a range of decision-making tasks.
+arxiv.org
+[2301.01006] Policy Pre-training for Autonomous Driving via Self-supervised Geometric Modeling
+Geometric modeling), an intuitive and straightforward fully self-supervised framework curated for the policy pretraining in visuomotor driving. We aim at learning policy representations as a powerful abstraction by modeling 3D geometric scenes on large-scale unlabeled and uncalibrated YouTube driving videos. The proposed PPGeo is performed in two stages to support effective self- supervised training. In the first stage, the geometric modeling framework generates pose and depth predictions simultaneously, with two consecutive frames as input. In the second stage, the visual encoder learns driving policy representation by predicting the future ego-motion and optimizing with the photometric error based on current visual observation only. As such, the pre-
+arxiv.org
+[2301.01006] Policy Pre-training for Autonomous Driving via Self-supervised Geometric Modeling
+generates pose and depth predictions simultaneously, with two consecutive frames as input. In the second stage, the visual encoder learns driving policy representation by predicting the future ego-motion and optimizing with the photometric error based on current visual observation only. As such, the pre- trained visual encoder is equipped with rich driving policy related representations and thereby competent for multiple visuomotor driving tasks. Extensive experiments covering a wide span of challenging scenarios have demonstrated the superiority of our proposed approach, where improvements range from 2% to even over 100% with very limited data.
+arxiv.org
+[2407.10803] DINO Pre-training for Vision-based End-to-end Autonomous Driving
+on a classification-based pre-training, which we hypothesise to be holding back from extending capabilities of implicit image understanding. We propose pre- training the visual encoder of a driving agent using the self-distillation with no labels (DINO) method, which relies on a self-supervised learning paradigm.% and is trained on an unrelated task. Our experiments in CARLA environment in accordance with the Leaderboard benchmark reveal that the proposed pre-training is more efficient than classification-based pre-training, and is on par with the recently proposed pre-training based on visual place recognition (VPRPre).
+arxiv.org
+[2206.09900] Occupancy-MAE: Self-supervised Pre-training Large-scale LiDAR Point Clouds with Masked Occupancy Autoencoders
+the effectiveness of Occupancy-MAE across several downstream tasks. For 3D object detection, Occupancy-MAE reduces the labelled data required for car detection on the KITTI dataset by half and improves small object detection by approximately 2% in AP on the Waymo dataset. For 3D semantic segmentation,
+alphadrive.ai
+ALPHA DRIVE | CARLA Leaderboard Case Study
+Infractions
+alphadrive.ai
+ALPHA DRIVE | CARLA Leaderboard Case Study
+distance completed by an agent, averaged across $N$ routes. * Infraction penalty:  $\prod_{j}^{ped.,…,stop}(p_i^j)^{\#infractions}$ — Aggregates the number of infractions triggered by an agent as a geometric series. Agents start with an ideal 1.0 base score, which is reduced by a penalty coefficient for every instance of these.
+alphadrive.ai
+ALPHA DRIVE | CARLA Leaderboard Case Study
+the infraction penalty of the ${i}-th$ route. * Route completion: $\frac{1}{N}\sum_{i}^NR_{i}$ — Percentage of route distance completed by an agent, averaged across $N$ routes. * Infraction penalty:  $\prod_{j}^{ped.,…,stop}(p_i^j)^{\#infractions}$ — Aggregates the number of infractions triggered by an agent as a geometric series. Agents start with an ideal 1.0 base score, which is reduced by a penalty coefficient for every instance of these.
+alphadrive.ai
+ALPHA DRIVE | CARLA Leaderboard Case Study
+* Driving score:  $\frac{1}{N}\sum_{i}^NR_{i}P_{i}$— The main metric of the leaderboard, serving as an aggregate of the average route completion and the number of traffic infractions. Here $N$ stands for the number of routes, $R_{i}$ is the percentage of completion of the ${i}-th$ route, and $P_{i}$ is the infraction penalty of the ${i}-th$ route. * Route completion: $\frac{1}{N}\sum_{i}^NR_{i}$ — Percentage of route distance completed by an agent, averaged across $N$ routes. * Infraction penalty:  $\prod_{j}^{ped.,…,stop}(p_i^j)^{\#infractions}$ — Aggregates the number of infractions triggered by an agent as a geometric
+arxiv.org
+[2206.09900] Occupancy-MAE: Self-supervised Pre-training Large-scale LiDAR Point Clouds with Masked Occupancy Autoencoders
+the effectiveness of Occupancy-MAE across several downstream tasks. For 3D object detection, Occupancy-MAE reduces the labelled data required for car detection on the KITTI dataset by half and improves small object detection by approximately 2% in AP on the Waymo dataset. For 3D semantic segmentation, Occupancy-MAE outperforms training from scratch by around 2% in mIoU. For multi- object tracking, Occupancy-MAE enhances training from scratch by approximately 1% in terms of AMOTA and AMOTP. Codes are publicly available at this https URL.
+arxiv.org
+Think2Drive: Efficient Reinforcement Learning by Thinking with Latent World Model for Autonomous Driving (in CARLA-v2)
+involves 39 new common events in the driving scene, providing a more quasi- realistic testbed compared to CARLA Leaderboard v1. It poses new challenges and so far no literature has reported any success on the new scenarios in V2. In this work, we take the initiative of directly training a neural planner and the hope is to handle the corner cases flexibly and effectively. To our best knowledge, we develop the first model-based RL method (named Think2Drive) for AD, with a compact latent world model to learn the transitions of the environment, and then it acts as a neural simulator to train the agent i.e. planner. It significantly boosts the training efficiency of RL thanks to the low
+arxiv.org
+Think2Drive: Efficient Reinforcement Learning by Thinking with Latent World Model for Autonomous Driving (in CARLA-v2)
+model. Think2Drive is able to run in an expert-level proficiency in CARLA v2 within 3 days of training on a single A6000 GPU, and to our best knowledge

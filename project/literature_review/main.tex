@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\title{Self-Supervised Learning via Deep Learning-based World Models: Literature Review}
+
+\author{
+    Hamza, A., \& Karaman, S. \\
+    Department of Electrical and Computer Engineering \\
+    New York University Tandon School of Engineering \\
+    \texttt{ah7072@nyu.edu | ah7072@nyu.edu}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    This literature review explores the application of self-supervised learning in autonomous driving, with a focus on I-JEPA. We analyze how I-JEPA compares to other self-supervised learning methods, its integration with CARLA, and label-efficient fine-tuning techniques.
+\end{abstract}
+
+\section{Introduction}
+
+Self-supervised learning (SSL) has emerged as a powerful paradigm for representation learning, eliminating the need for large labeled datasets while achieving competitive performance in downstream tasks. Among SSL approaches, the \textit{Implicit Joint-Embedding Predictive Architecture} (I-JEPA) \citep{jean2023ijepa} offers a novel framework that learns by predicting high-level latent representations of missing image regions, rather than reconstructing pixels or enforcing contrastive invariance. This property makes I-JEPA particularly suitable for domains requiring \textit{semantic abstraction}, such as autonomous driving.
+
+In the context of self-driving systems, \textit{learning effective scene representations from unlabeled driving data} is crucial for \textit{data efficiency, robustness, and generalization} across diverse conditions. Traditional self-supervised methods, such as \textit{contrastive learning} (SimCLR, BYOL) \citep{chen2020simple, grill2020bootstrap} and \textit{masked autoencoders} (MAE) \citep{he2022masked}, have been explored for autonomous perception but face challenges such as reliance on hand-crafted augmentations or low-level pixel reconstruction. I-JEPA's ability to learn \textit{semantic-rich representations} without contrastive negatives or generative decoders presents a promising alternative.
+
+While I-JEPA has demonstrated state-of-the-art performance on \textit{image classification, object counting, and depth prediction}, its application to \textit{autonomous driving} remains largely unexplored. Recent work, such as \textit{AD-L-JEPA} \citep{zhu2025adljepa}, has successfully extended I-JEPA to \textit{LiDAR data}, improving 3D object detection. However, \textit{I-JEPA’s potential for learning camera-based representations applicable to end-to-end driving policies—such as steering control in the CARLA simulator—has not been systematically investigated}.
+
+This literature review explores the theoretical underpinnings of I-JEPA, its comparison with existing self-supervised learning paradigms, and its potential integration into \textit{autonomous driving frameworks}. Specifically, we highlight \textit{gaps in current research} and propose leveraging I-JEPA as a \textit{pre-training mechanism} for label-efficient fine-tuning in \textit{steering control tasks} within \textit{CARLA}, a widely used simulation environment for autonomous vehicle research.
+
+\section{I-JEPA: Theoretical Foundations}
+- Overview of Joint-Embedding Predictive Architecture (I-JEPA)
+- Core principles: context and target encoders, feature space prediction
+- Advantages over generative and contrastive methods (e.g., MAE, SimCLR, BYOL)
+
+\section{Comparative Analysis of Self-Supervised Learning Methods}
+- Masked Autoencoders (MAE)
+- Contrastive Learning (SimCLR, BYOL, DINO)
+- Differences in learned representations, efficiency, and scalability
+
+\section{Applications to Autonomous Driving}
+- Prior works using self-supervised learning in autonomous driving
+- I-JEPA’s potential role in world modeling for self-driving cars
+- AD-L-JEPA: Applying I-JEPA to LiDAR data
+
+\section{Label-Efficient Fine-Tuning in CARLA}
+- Strategies for adapting I-JEPA to autonomous driving
+- Benchmarking against datasets like KITTI, nuScenes, and Waymo
+- Reducing labeled data dependency for fine-tuning
+
+\section{Evaluation Metrics and Benchmarks}
+- Performance evaluation in CARLA: route completion, infractions, safety
+- Self-supervised pre-training effects on policy learning
+- Comparative benchmarking with other SSL approaches
+
+\section{Conclusion and Future Work}
+- Summary of key findings
+- Open research challenges in applying I-JEPA to driving policies
+- Future directions: Multi-modal I-JEPA, temporal extensions, RL integration
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
