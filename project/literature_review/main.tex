@@ -24,29 +24,29 @@
 
 \section{Introduction}
 
-Self-supervised learning (SSL) has emerged as a powerful paradigm for representation learning, eliminating the need for large labeled datasets while achieving competitive performance in downstream tasks. Among SSL approaches, the \textit{Implicit Joint-Embedding Predictive Architecture} (I-JEPA) \citep{jean2023ijepa} offers a novel framework that learns by predicting high-level latent representations of missing image regions, rather than reconstructing pixels or enforcing contrastive invariance. This property makes I-JEPA particularly suitable for domains requiring \textit{semantic abstraction}, such as autonomous driving.
+As the field of machine learning grows the need for machines to see the world in a more "human-like" view has been a key component in many research endeavors. Especially in the field of Self-supervised learning (SSL), it has emerged as a powerful paradigm for representation learning, eliminating the need for large labeled datasets while achieving competitive performance in downstream tasks. Among SSL approaches, the \textit{Implicit Joint-Embedding Predictive Architecture} (I-JEPA) \citep{jean2023ijepa} offers a novel framework that learns by predicting high-level latent representations of missing image regions, rather than reconstructing pixels or enforcing contrastive invariance. This property makes I-JEPA particularly suitable for domains requiring \textit{semantic abstraction}, such as autonomous driving that requires instant decision making in complex scenarios.
 
-In the context of self-driving systems, \textit{learning effective scene representations from unlabeled driving data} is crucial for \textit{data efficiency, robustness, and generalization} across diverse conditions. Traditional self-supervised methods, such as \textit{contrastive learning} (SimCLR, BYOL) \citep{chen2020simple, grill2020bootstrap} and \textit{masked autoencoders} (MAE) \citep{he2022masked}, have been explored for autonomous perception but face challenges such as reliance on hand-crafted augmentations or low-level pixel reconstruction. I-JEPA's ability to learn \textit{semantic-rich representations} without contrastive negatives or generative decoders presents a promising alternative.
+In the context of self-driving systems, \textit{learning effective scene representations from unlabeled driving data} is crucial for \textit{data efficiency, robustness, and generalization} across diverse conditions. Traditional self-supervised methods, such as \textit{contrastive learning} (SimCLR, BYOL) \citep{chen2020simple, grill2020bootstrap} and \textit{masked autoencoders} (MAE) \citep{he2022masked}, have been explored for autonomous perception but face challenges such as reliance on hand-crafted augmentations or low-level pixel reconstruction. I-JEPA's ability to learn from data-dense images and convert them to latent space representations without contrastive negatives or generative decoders presents a promising alternative.
 
-While I-JEPA has demonstrated state-of-the-art performance on \textit{image classification, object counting, and depth prediction}, its application to \textit{autonomous driving} remains largely unexplored. Recent work, such as \textit{AD-L-JEPA} \citep{zhu2025adljepa}, has successfully extended I-JEPA to \textit{LiDAR data}, improving 3D object detection. However, \textit{I-JEPA’s potential for learning camera-based representations applicable to end-to-end driving policies—such as steering control in the CARLA simulator—has not been systematically investigated}.
+Although I-JEPA has demonstrated state-of-the-art performance on \textit{image classification, object counting, and depth prediction}, its application to \textit{autonomous driving} remains largely unexplored. Recent work, such as \textit{AD-L-JEPA} \citep{zhu2025adljepa}, has successfully extended I-JEPA to \textit{LiDAR data}, improving 3D object detection. However, \textit{I-JEPA’s potential for learning camera-based representations applicable to end-to-end driving policies—such as adverting dangerous conditions by allowing the steering system to make faster decisions. Another potential market is in steering control in the CARLA simulator, which has not been systematically investigated}. 
 
-This literature review explores the theoretical underpinnings of I-JEPA, its comparison with existing self-supervised learning paradigms, and its potential integration into \textit{autonomous driving frameworks}. Specifically, we highlight \textit{gaps in current research} and propose leveraging I-JEPA as a \textit{pre-training mechanism} for label-efficient fine-tuning in \textit{steering control tasks} within \textit{CARLA}, a widely used simulation environment for autonomous vehicle research.
+This literature review explores the theoretical underpinnings of I-JEPA, its comparison with existing self-supervised learning paradigms, and its potential integration into \textit{autonomous driving}. Specifically, we highlight \textit{gaps in current research} and propose leveraging I-JEPA as a \textit{pre-training mechanism} for label-efficient fine-tuning in \textit{steering control tasks} within \textit{CARLA}, a widely used simulation environment for autonomous vehicle research.
 \section{I-JEPA: Theoretical Foundations}
 
 \subsection{Overview of Joint-Embedding Predictive Architecture (I-JEPA)}
-The \textit{Implicit Joint-Embedding Predictive Architecture} (I-JEPA) \citep{jean2023ijepa} is a self-supervised learning framework that learns by predicting high-level latent representations of missing image regions, rather than reconstructing raw pixels. Unlike traditional generative models that require pixel-wise reconstruction, I-JEPA operates in a \textit{feature space}, allowing it to learn more abstract and semantic representations. 
+The \textit{Implicit Joint-Embedding Predictive Architecture} (I-JEPA) \citep{jean2023ijepa} is a self-supervised learning framework that learns by predicting high-level latent representations of missing image regions, rather than reconstructing raw pixels. Unlike traditional generative models that require pixel-wise reconstruction, I-JEPA operates in a \textit{feature space}, allowing it to learn more abstract and semantic representations. This is possible by the transformers in the architecture that makes I-JEPA which translates an incoming image into a lower dimensional space keeping the most relevant information of the image. 
 
-I-JEPA follows a \textit{predictive modeling} approach, where the model learns to infer unseen portions of an input image using only its contextual information. This approach is inspired by human perception, where understanding is derived from partial observations rather than complete reconstructions. This characteristic makes I-JEPA particularly effective in learning transferable representations that can generalize across multiple downstream tasks, such as classification, segmentation, and object detection.
+I-JEPA follows a \textit{predictive modeling} approach, where the model learns to infer unseen portions of an input image using only its contextual information. This approach is inspired by human perception, where understanding is derived from partial observations rather than complete reconstructions. This characteristic makes I-JEPA particularly effective in learning transferable representations that can generalize across multiple downstream tasks, such as classification, segmentation, and object detection. Thus allowing it to work in many scenarios without depending on the pixels of an image. 
 
 \subsection{Core Principles: Context and Target Encoders, Feature Space Prediction}
 I-JEPA consists of three primary components:
 \begin{itemize}
-    \item \textbf{Context Encoder:} Processes a visible portion of the input (referred to as the \textit{context block}) and encodes it into a latent representation.
-    \item \textbf{Target Encoder:} Independently encodes the withheld regions (\textit{target blocks}) into feature representations. Unlike contrastive learning, these target blocks are not augmented variants of the same input but rather different masked-out regions.
-    \item \textbf{Predictor Network:} A lightweight neural network that takes the context encoding and attempts to predict the target encoding in feature space.
+    \item \textbf{Context Encoder:} Processes a visible portion of the input (referred to as the \textit{context block}) and encodes it into a latent space representation(compressing the image into lower dimension but still keeping it's important features).
+    \item \textbf{Target Encoder:} Independently encodes the withheld regions (\textit{target blocks}) into feature representations. Unlike contrastive learning, these target blocks are not augmented variants of the same input but rather different masked-out regions. In other words the Target Encoder takes in the same image that goes into the context encoder, and masks out certain regions of an image. It takes these masked regions and compresses it into a latent space dimension. 
+    \item \textbf{Predictor Network:} A lightweight neural network that takes both the context encoding, target encoding and attempts to predict the target encoding in feature space. 
 \end{itemize}
 
-Instead of directly reconstructing pixel-level details, the predictor is trained to minimize the difference between the predicted and actual target embeddings, typically using an $\ell_2$ loss function in the representation space. This design ensures that I-JEPA captures \textit{high-level semantic information} rather than low-level textures, making it more efficient for representation learning.
+I-JEPA does not need to encode the entire input image, and only takes in a section of the image that has not been masked by the target encoder. This allows it to not have to intake numerous unlabeled data, and only a subset. Instead of directly reconstructing pixel-level details, the predictor is trained to minimize the difference between the predicted and actual target embeddings, typically using an $\ell_2$ loss function in the representation space. This design ensures that I-JEPA captures \textit{high-level semantic information} rather than low-level textures, making it more efficient for representation learning.
 
 \subsection{Advantages Over Generative and Contrastive Methods}
 I-JEPA differs from existing self-supervised learning approaches in several fundamental ways:
@@ -96,39 +96,6 @@ Despite the progress in self-supervised learning for autonomous driving, existin
 
 By addressing these gaps, this study aims to evaluate the feasibility of I-JEPA as a pre-training strategy for autonomous vision-based driving in CARLA. The next section details the methodology for adapting I-JEPA to the CARLA environment and optimizing it for steering control tasks.
 
-\section{Relevant Datasets for Self-Supervised Learning in Autonomous Driving}
-
-To evaluate self-supervised learning approaches for autonomous driving, a variety of real-world and simulated datasets are commonly used. These datasets provide diverse environments, sensor modalities, and annotation types, making them essential for benchmarking representation learning methods such as I-JEPA.
-
-\subsection{Real-World Driving Datasets}
-
-\paragraph{1. KITTI} 
-The \textbf{KITTI dataset} \citep{geiger2013vision} is one of the most widely used benchmarks for autonomous driving. It includes sensor data from cameras, LiDAR, and GPS/IMU, covering tasks such as object detection, depth estimation, and optical flow. KITTI is frequently used to evaluate self-supervised learning for perception tasks but does not provide extensive driving policy data.
-
-\paragraph{2. nuScenes} 
-The \textbf{nuScenes dataset} \citep{caesar2020nuscenes} provides a richer multi-modal perception dataset with 360-degree camera views, LiDAR, radar, and HD maps collected in urban settings. It includes autonomous vehicle trajectories, making it suitable for evaluating self-supervised models in trajectory forecasting and planning.
-
-\paragraph{3. Waymo Open Dataset} 
-The \textbf{Waymo Open Dataset} \citep{sun2020scalability} is a large-scale dataset with high-quality LiDAR and camera annotations for 3D object detection, tracking, and segmentation. Given its diversity in driving environments, it serves as an ideal dataset for training self-supervised representations that generalize across different domains.
-
-\paragraph{4. BDD100K} 
-The \textbf{Berkeley DeepDrive 100K (BDD100K)} dataset \citep{yu2020bdd100k} is the largest publicly available dataset for road scene understanding. It contains video sequences with annotations for lane detection, object tracking, and semantic segmentation, making it valuable for testing self-supervised models in temporal prediction tasks.
-
-\subsection{Simulated Datasets for Self-Supervised Learning}
-
-\paragraph{1. CARLA Dataset} 
-The CARLA simulator \citep{dosovitskiy2017carla} generates large-scale driving datasets with full ground truth annotations for semantic segmentation, depth estimation, and imitation learning. CARLA enables data augmentation, domain randomization, and synthetic-to-real transfer, making it an ideal testbed for self-supervised learning approaches such as I-JEPA.
-
-\paragraph{2. AVD Dataset} 
-The Autonomous Vehicle Dataset (AVD) \citep{choi2021robust} provides a large-scale collection of camera and LiDAR data for self-driving applications. It is designed to bridge the gap between simulation and real-world deployment, making it particularly useful for evaluating self-supervised models that need to generalize across environments.
-
-\paragraph{3. Lyft Level 5 Dataset} 
-The \textbf{Lyft Level 5} dataset \citep{houston2020lyft} consists of high-resolution LiDAR, radar, and camera data collected from self-driving cars. It includes detailed trajectory information, making it suitable for training self-supervised driving policies.
-
-\subsection{Importance of Dataset Selection}
-For self-supervised pre-training, datasets with high variability, multiple sensor modalities, and large-scale unlabeled data are preferred. KITTI, nuScenes, and Waymo provide real-world driving data, while CARLA and AVD allow simulation-based benchmarking. This combination enables a comprehensive evaluation of self-supervised models like I-JEPA, testing their ability to generalize across different driving conditions.
-
-In this study, we aim to integrate I-JEPA with CARLA for self-supervised representation learning, while leveraging real-world datasets like nuScenes and BDD100K for fine-tuning and validation.
 \section{Conclusion and Next Steps}
 
 Self-supervised learning has emerged as a key technique for reducing the reliance on large labeled datasets in autonomous driving. Among various self-supervised paradigms, the \textit{Implicit Joint-Embedding Predictive Architecture} (I-JEPA) has demonstrated strong performance in learning high-level representations from images without requiring contrastive objectives or generative reconstructions \citep{jean2023ijepa}. While I-JEPA has been successfully applied to LiDAR-based object detection through AD-L-JEPA \citep{zhu2025adljepa}, its potential in camera-based self-supervised learning for end-to-end driving policies remains unexplored.
