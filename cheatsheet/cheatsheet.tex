@@ -1,0 +1,476 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.6in]{geometry}  % Narrower margins
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{multicol}  % For multiple columns
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.05}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{Combined Cheat Sheets for Lectures 2--5}}
+\end{center}
+\vspace{0.5em}
+
+\begin{multicols}{2}
+
+%===========================================================
+% LECTURE 2
+%===========================================================
+\section*{Lecture 2: Advanced Machine Learning}
+\vspace{-0.5em}
+\hrule
+\vspace{1em}
+
+\textbf{Topics Covered:}
+\begin{itemize}
+\item Perceptron
+\item Exponentiated Gradient (EG)
+\item Expert Advice (Static-expert, Fixed-share, Learn-$\alpha$)
+\item Online Multi-class Classification
+\end{itemize}
+
+\subsection*{Perceptron}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Binary classification with labels $y \in \{-1, +1\}$.
+\item Linear model: $f(x, w) = w^\top x$.
+\item Decision rule: $g(z) = \mathrm{sign}(z)$, i.e.
+\[
+g(z) = 
+\begin{cases}
+-1 & \text{if } z<0,\\
++1 & \text{otherwise}.
+\end{cases}
+\]
+\item Perceptron update (online/SGD form):
+\[
+w_{t+1} = w_{t} + y_i \, x_i
+\quad
+\text{if } y_i \,(w_t^\top x_i) \le 0.
+\]
+\end{itemize}
+
+\textbf{Perceptron Convergence Theorem.}
+\begin{itemize}
+\item \textbf{Assumptions:} 
+  \begin{enumerate}
+    \item All data lie within a ball of radius $r$ ($\|x_i\| \le r$).
+    \item Data are linearly separable with margin $\gamma>0$ ($y_i (w^* \cdot x_i) \ge \gamma$).
+  \end{enumerate}
+\item \textbf{Claim:} Perceptron converges in $\le (r/\gamma)^2$ steps if such $w^*$ exists.
+\end{itemize}
+
+\subsection*{Exponentiated Gradient (EG)}
+
+\textbf{General Idea.}
+\begin{itemize}
+\item Online linear regression with real-valued outcomes $y_t$, feature $x_t$.
+\item Maintain weight vector $w_t=(w_{t,1},\dots,w_{t,n})^\top$ over ``experts.''
+\item Prediction $\hat{y}_t = w_t^\top x_t$.
+\end{itemize}
+
+\textbf{Update Rule.}
+\begin{itemize}
+\item For loss $L(y,\hat{y})$, let $g_t=\nabla_{\hat{y}} L(y_t,\hat{y}_t)$. 
+\item EG updates \emph{multiplicatively}:
+\[
+w_{t+1,i}
+= \frac{\,w_{t,i}\,\exp\bigl(-\eta\,g_t\,x_{t,i}\bigr)}
+{\sum_{j} w_{t,j}\,\exp\bigl(-\eta\,g_t\,x_{t,j}\bigr)}.
+\]
+\item Contrast: Gradient Descent (GD) is additive: $w_{t+1}=w_t -\eta\,g_t\,x_t$.
+\end{itemize}
+
+\textbf{KL Divergence Perspective.}
+\begin{itemize}
+\item EG can be seen as minimizing (approximately)
+\[
+d\bigl(w_{t+1}, w_t\bigr)\;+\;\eta\, L\bigl(y_t,\,w_{t+1}^\top x_t\bigr),
+\]
+where $d(\cdot,\cdot)$ is the KL divergence.
+\end{itemize}
+
+\subsection*{Expert Advice}
+
+\textbf{Setup.}
+\begin{itemize}
+\item $n$ experts, each provides $e_t(i)$ at time $t$.
+\item Learner forms $\hat{y}_t = \sum_{i=1}^n p_t(i)\,e_t(i)$.
+\item Loss of algorithm: $L(\hat{y}_t,y_t)$; loss of expert $i$: $L_t(i)=L(e_t(i),y_t)$.
+\item Goal: bound regret vs.\ best expert(s) in hindsight.
+\end{itemize}
+
+\textbf{Static-Expert.}
+\begin{itemize}
+\item Best expert is fixed: $\alpha=0$.
+\item Update: $p_t(i)\propto p_{t-1}(i)\,\exp(-\eta\,L_{t-1}(i))$.
+\item Regret bound: $L_T(\text{alg})\le L_T(i^*)+c\ln(n)$.
+\end{itemize}
+
+\textbf{Fixed-Share $(\alpha)$.}
+\begin{itemize}
+\item Best expert can shift $s$ times.
+\item $p(i\mid j;\alpha)$ has probability $\alpha$ of switching, $(1-\alpha)$ of staying.
+\item Regret depends on $s,\ln(n)$, etc.
+\end{itemize}
+
+\textbf{Learn-$\alpha$.}
+\begin{itemize}
+\item Maintain multiple fixed-share strategies with different $\alpha$.
+\item Use top-level aggregator to choose among them.
+\end{itemize}
+
+\subsection*{Online Multi-class Classification}
+
+\textbf{Motivation.}
+\begin{itemize}
+\item For large $k$ classes, aim for $O(\log k)$ time complexity.
+\item Tree-based approach: reduce multi-class to repeated binary splits.
+\end{itemize}
+
+\textbf{Tree Partitioning.}
+\begin{itemize}
+\item Each node classifies a subset of classes into 2 groups.
+\item Splitting criterion: 
+\[
+J(h)=2\,\mathbb{E}_y\!\Bigl[\bigl|\;P\bigl(h(x)>0\bigr)-P\bigl(h(x)>0\mid y\bigr)\bigr|\Bigr].
+\]
+\item Larger $J(h)\implies$ more balanced, pure splits. Depth $\approx O(\log k)$ under suitable margin assumptions.
+\end{itemize}
+
+\textbf{Implementation.}
+\begin{itemize}
+\item Maintain online estimates of $\mathbb{E}[h(x)]$ and $\mathbb{E}[h(x)\mid y]$ at each node.
+\item Update linear classifier $w$ (Perceptron/SGD style).
+\item Build tree top-down.
+\end{itemize}
+
+\vfill
+\textbf{References (Lec2):}
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item C. M. Bishop, \emph{Pattern Recognition \& Machine Learning}, 2006.
+\item T. Jebara, Course Notes, ML Topic 4.
+\item M. K. Warmuth \& J. Kivinen, \emph{EG vs. Gradient Descent}, Inf. and Comp., 132(1):1--63, 1995.
+\item C. Monteleoni, \emph{Learning with Online Constraints}, PhD Thesis, MIT, 2006.
+\item A. Choromanska \& C. Monteleoni, \emph{Online Clustering with Experts}, AISTATS, 2012.
+\item M. Herbster \& M. K. Warmuth, \emph{Tracking the Best Expert}, ML, 32:151--178, 1998.
+\item Y. Jernite \emph{et al.}, \emph{Simultaneous Learning of Trees \& Representations for Extreme Classification}, arXiv:1610.04658, 2016.
+\item A. Choromanska \& J. Langford, \emph{Log Time Online Multiclass Prediction}, NIPS, 2015.
+\end{itemize}
+
+%===========================================================
+% LECTURE 3
+%===========================================================
+\columnbreak
+
+\section*{Lecture 3: Advanced Machine Learning}
+\vspace{-0.5em}
+\hrule
+\vspace{1em}
+
+\textbf{Topics Covered:}
+\begin{itemize}
+\item Deep learning basics
+\item Feed-forward neural networks
+\item Back-propagation
+\item Convolutional neural networks (CNNs)
+\item Regularization (dropout, etc.)
+\item Generative adversarial networks (GANs)
+\item Autoencoders
+\item LISTA (Learned ISTA)
+\item Non-convexity \& optimization landscapes (Entropy-SGD, EASGD)
+\end{itemize}
+
+\subsection*{Deep Learning Essentials}
+\begin{itemize}
+\item \textbf{Definition:} multi-layer (deep) non-linear transformations to learn hierarchical features.
+\item Overparameterized models (millions of parameters).
+\item Revolutionized image recognition, speech, NLP, etc.
+\end{itemize}
+
+\subsection*{Feed-Forward Networks (FFNNs)}
+\begin{itemize}
+\item No cycles or recurrences, purely feed-forward.
+\item Single-layer perceptron is limited to linearly separable data.
+\item MLP (2+ layers) can approximate wide range of functions.
+\item Common activations: ReLU, Sigmoid, Tanh, Softmax.
+\end{itemize}
+
+\subsection*{Back-Propagation Algorithm}
+\begin{itemize}
+\item Forward pass: compute layer outputs.
+\item Compute loss, e.g.\ $L=\tfrac12\|y-\hat{y}\|^2$ or cross-entropy.
+\item Backward pass: chain rule for gradients w.r.t.\ each layer.
+\item Update weights with SGD or variants.
+\item \emph{Vanishing gradients}: repeated small derivatives can lead to tiny updates in early layers.
+\end{itemize}
+
+\subsection*{Convolutional Neural Networks (CNNs)}
+\begin{itemize}
+\item Key ideas: local receptive fields, shared filters, pooling.
+\item Convolution: $(W^k * x)_{ij} + b^k$, then non-linearity $\sigma$.
+\item Pooling: max or average over sub-regions, reduces dimension, adds invariance.
+\item Example: LeNet for digit recognition (conv+pool, repeated, then fully-connected).
+\end{itemize}
+
+\subsection*{Regularization in Deep Nets}
+\begin{itemize}
+\item \textbf{Dropout:} random drop units (and connections) with prob $p$ during training; at test, use full net but scale weights by $(1-p)$.
+\item Other techniques: data augmentation, weight decay, batch norm, skip connections (e.g.\ ResNet).
+\end{itemize}
+
+\subsection*{Generative Adversarial Networks (GANs)}
+\begin{itemize}
+\item Two models: generator $G(z;\theta_g)$, discriminator $D(x;\theta_d)$.
+\item Minimax objective:
+\[
+\min_G \max_D \Bigl[
+\mathbb{E}_{x\sim p_{\text{data}}}\ln D(x)
+\;+\;
+\mathbb{E}_{z\sim p_z}\ln\bigl(1-D(G(z))\bigr)
+\Bigr].
+\]
+\item Training trick: instead of $\ln(1-D(G(z)))$, train $G$ to maximize $\ln (D(G(z)))$.
+\end{itemize}
+
+\subsection*{Autoencoders}
+\begin{itemize}
+\item Unsupervised: reconstruct input $x$ at output $\hat{x}$.
+\item Bottleneck or sparsity constraints to force compressed representation.
+\item E.g.\ \emph{sparse autoencoder}: penalize large average activation with $\mathrm{KL}(\rho\|\hat{\rho})$.
+\item Variations: denoising autoencoders, VAEs, etc.
+\end{itemize}
+
+\subsection*{LISTA (Learned ISTA)}
+\begin{itemize}
+\item Sparse coding problem: $\min_z \tfrac12\|x - W_d\,z\|^2 + \alpha\|z\|_1$.
+\item ISTA: iterative shrinkage-thresholding. 
+\item LISTA: unroll ISTA steps as a feed-forward net of fixed depth, learn its parameters $(W_e,S,\theta)$ via SGD.
+\end{itemize}
+
+\subsection*{Non-Convexity \& Optimization Landscapes}
+\begin{itemize}
+\item Deep nets have many local minima. Wide basins often generalize better.
+\item \textbf{Entropy-SGD:} modifies objective by local entropy term, encourages exploration of wide valleys.
+\item \textbf{EASGD:} parallelizable approach, multiple workers plus a center parameter; effectively searches wider minima.
+\end{itemize}
+
+\vfill
+\textbf{References (Lec3):}
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item T. Jebara, \emph{Course Notes, ML Topic 4}.
+\item \texttt{http://deeplearning.net/tutorial/lenet.html}
+\item Srivastava et al., \emph{Dropout: A Simple Way to Prevent NN Overfitting}, JMLR, 2014.
+\item Goodfellow et al., \emph{Generative Adversarial Nets}, NIPS, 2014.
+\item \texttt{http://deeplearning.stanford.edu/tutorial}
+\item Gregor \& LeCun, \emph{Learning Fast Approx.\ of Sparse Coding}, ICML 2010.
+\item P. Chaudhari et al., \emph{Entropy-SGD}, arXiv:1611.01838, 2016.
+\end{itemize}
+
+%===========================================================
+% LECTURE 4
+%===========================================================
+
+\section*{Lecture 4: Advanced Machine Learning}
+\vspace{-0.5em}
+\hrule
+\vspace{1em}
+
+\textbf{Topics Covered:}
+\begin{itemize}
+\item Learning problem and statistical risk
+\item Empirical Risk Minimization (ERM)
+\item Introduction to PAC learning
+\item Concentration inequalities (Markov, Chebyshev, Hoeffding, Chernoff)
+\item Bounded loss risk bounds
+\item PAC bounds for ERM
+\end{itemize}
+
+\subsection*{Learning Problem \& Statistical Risk}
+\begin{itemize}
+\item $(X,Y)\sim P_{XY}$, unknown distribution.
+\item Loss function $L(\hat{y},y)$, e.g.\ 0/1 for classification or squared error for regression.
+\item $R(f)=\mathbb{E}[L(f(X),Y)]$ is the \emph{statistical risk}.
+\item Want $f$ that minimizes $R(f)$ using sample $D_n=\{(X_i,Y_i)\}_{i=1}^n$ i.i.d.
+\end{itemize}
+
+\subsection*{Empirical Risk Minimization (ERM)}
+\begin{itemize}
+\item Empirical risk: $\hat{R}_n(f)=\frac{1}{n}\sum_{i=1}^n L\bigl(f(X_i),Y_i\bigr)$.
+\item ERM: $\hat{f}_n=\arg\min_{f\in\mathcal{F}} \hat{R}_n(f)$.
+\item By LLN, $\hat{R}_n(f)\to R(f)$ for fixed $f$, but uniform convergence needs concentration inequalities.
+\end{itemize}
+
+\subsection*{Concentration Inequalities}
+\begin{itemize}
+\item \textbf{Markov:} $P(Z\ge t)\le \frac{\mathbb{E}[Z]}{t}, \; Z\ge0$.
+\item \textbf{Chebyshev:} $P(|X-\mu|\ge t)\le \frac{\mathrm{Var}(X)}{t^2}$.
+\item \textbf{Hoeffding:} For $X_i\in[a_i,b_i]$ i.i.d.\ with mean $\mu$, 
+\[
+P\Bigl(\sum (X_i-\mu)\ge t\Bigr)\;\le\;\exp\Bigl(-\frac{2t^2}{\sum_i(b_i-a_i)^2}\Bigr).
+\]
+\item \textbf{Chernoff:} 
+$P(S_n\ge t)\le \inf_{s>0} \Bigl(\prod_i \mathbb{E}[e^{s X_i}]\Bigr) e^{-st}.$
+\end{itemize}
+
+\subsection*{General Bounds for Bounded Losses}
+\begin{itemize}
+\item Suppose $L(\cdot,\cdot)\in[0,1]$.
+\item For a fixed $f$, by Hoeffding:
+$P(\hat{R}_n(f)\le R(f)-\epsilon)\le e^{-2n\epsilon^2}$.
+\item For finite $\mathcal{F}$ of size $|\mathcal{F}|$:
+\[
+P\Bigl(\exists f: \hat{R}_n(f)\le R(f)-\epsilon\Bigr)\;\le\;|\mathcal{F}|\;e^{-2n\epsilon^2}.
+\]
+\item Also a 2-sided version: 
+$P(\sup_{f\in\mathcal{F}}|\hat{R}_n(f)-R(f)|>\epsilon)\le 2|\mathcal{F}|e^{-2n\epsilon^2}$.
+\end{itemize}
+
+\subsection*{Expected Risk Bound for ERM}
+\begin{itemize}
+\item Let $\hat{f}_n=\arg\min_{f\in\mathcal{F}} \hat{R}_n(f)$.
+\item With prob $\ge1-\delta$:
+\[
+R(\hat{f}_n)\;\le\;\hat{R}_n(\hat{f}_n)\;+\;\sqrt{\frac{\ln|\mathcal{F}|+\ln\frac{1}{\delta}}{2n}}.
+\]
+\item Then 
+$\mathbb{E}[R(\hat{f}_n)]-\min_{f\in\mathcal{F}} R(f)\le \inf_{\delta\in(0,1)}\bigl[\sqrt{\tfrac{\ln|\mathcal{F}|+\ln(1/\delta)}{2n}}+\delta\bigr].$
+\end{itemize}
+
+\subsection*{PAC Bound for ERM}
+\begin{itemize}
+\item With probability $\ge1-\delta$:
+\[
+R(\hat{f}_n)\;\le\;\inf_{f\in\mathcal{F}} R(f)\;+\;2\sqrt{\frac{\ln\bigl(1+|\mathcal{F}|\bigr)+\ln\frac{1}{\delta}}{2n}}.
+\]
+\end{itemize}
+
+\vfill
+\textbf{Reference (Lec4):}
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item R. Castro, \emph{2DI70 - Statistical Learning Theory Lecture Notes}.
+\end{itemize}
+
+
+%===========================================================
+% LECTURE 5
+%===========================================================
+\section*{Lecture 5: Advanced Machine Learning}
+\vspace{-0.5em}
+\hrule
+\vspace{1em}
+
+\textbf{Topics Covered:}
+\begin{itemize}
+\item Occam's Razor
+\item VC Dimension
+\item VC Inequality
+\item Structural Risk Minimization (SRM)
+\item Gap-Tolerant Linear Classifiers
+\item Support Vector Machine (SVM)
+\item Basis Functions
+\item Kernels
+\end{itemize}
+
+\subsection*{Occam's Razor}
+\begin{itemize}
+\item Simpler hypotheses that fit data are often preferred.
+\item Overly complex models can overfit; smaller effective capacity can yield better generalization.
+\end{itemize}
+
+\subsection*{VC Dimension}
+\begin{itemize}
+\item \textbf{Binary Classification}: set of $h$ points is \emph{shattered} if all $2^h$ labelings are realizable by $\mathcal{F}$.
+\item VC dimension $= \max\{h: \exists \text{ set of $h$ points shattered}\}$.
+\item E.g.\ linear in $\mathbb{R}^d$: $\mathrm{VC}(\mathcal{F})=d+1$; axis-aligned rectangles in 2D: $\mathrm{VC}=4$.
+\item Sometimes infinite, e.g.\ $f(x)=\mathrm{sign}(\sin(\theta x))$ with 1 parameter has $\mathrm{VC}=\infty$.
+\end{itemize}
+
+\subsection*{VC Inequality}
+\begin{itemize}
+\item \textbf{Shattering Coefficient}: $S(\mathcal{F},n)=\max_{(x_1,\ldots,x_n)}|\{\bigl(f(x_1),\ldots,f(x_n)\bigr):f\in\mathcal{F}\}|$.
+\item \textbf{Sauer's Lemma}: $S(\mathcal{F},n)\le (n+1)^{\mathrm{VC}(\mathcal{F})}$.
+\item \textbf{VC bound}:
+\[
+P\Bigl(\sup_{f\in\mathcal{F}}|\hat{R}_n(f)-R(f)|>\epsilon\Bigr)
+\;\le\;8\,S(\mathcal{F},n)\,\exp\Bigl(-\frac{n\epsilon^2}{32}\Bigr).
+\]
+\end{itemize}
+
+\subsection*{Structural Risk Minimization (SRM)}
+\begin{itemize}
+\item Nested classes $\mathcal{F}_1\subset\mathcal{F}_2\subset\dots$, with increasing capacity (VC dimension).
+\item Solve ERM in each class. Then pick $\hat{k}$ to minimize $\hat{R}_n(\hat{f}_n^{(k)})+\mathrm{penalty}(\mathrm{VC}(\mathcal{F}_k),n)$.
+\item Achieves compromise between empirical fit and model complexity.
+\end{itemize}
+
+\subsection*{Gap-Tolerant Linear Classifiers}
+\begin{itemize}
+\item Margin $M$, diameter $D$ of data $\implies$ $\mathrm{VC}\le \min\bigl(\lceil (D/M)^2\rceil,d+1\bigr)$.
+\item Larger margin $\implies$ smaller capacity $\implies$ better generalization bounds.
+\end{itemize}
+
+\subsection*{Support Vector Machine (SVM)}
+
+\textbf{Linear SVM (Separable).}
+\begin{itemize}
+\item Binary classification with $y_i\in\{-1,+1\}$.
+\item Separate data by $w^\top x_i + b \ge1$ for $y_i=+1$, and $\le-1$ for $y_i=-1$.
+\item \emph{Maximize margin} $\frac{2}{\|w\|}$ $\implies$
+\[
+\min_{w,b}\;\tfrac12 \|w\|^2
+\quad
+\text{s.t. } \;y_i(w^\top x_i + b)\ge1, \,\forall i.
+\]
+\item \textbf{Dual}:
+\[
+\max_{\alpha\ge0}\;\sum_{i}\alpha_i-\tfrac12\sum_{i,j}\alpha_i\alpha_j\,y_i y_j (x_i^\top x_j),
+\quad
+\sum_i \alpha_i y_i=0.
+\]
+\item \emph{Sparse solution}: $w=\sum_i\alpha_i y_i x_i$. Only support vectors have $\alpha_i>0$.
+\end{itemize}
+
+\textbf{Soft-Margin.}
+\begin{itemize}
+\item Allow slack $\xi_i\ge0$ for margin violations, penalize by $C\sum_i \xi_i$.
+\item \[
+\min_{w,b,\{\xi_i\}}\;\tfrac12 \|w\|^2 + C\sum_{i}\xi_i
+\quad
+\text{s.t. } y_i(w^\top x_i + b)\ge1-\xi_i,\;\xi_i\ge0.
+\]
+\item Dual has $\alpha_i\in[0,C]$.
+\end{itemize}
+
+\subsection*{Basis Functions \& Kernels}
+
+\textbf{Basis Functions.}
+\begin{itemize}
+\item E.g.\ polynomial or RBF expansions $\phi(x)$, then do linear regression/classification in feature space.
+\item RBF: $\phi_i(x)=\exp\bigl(-\|x-x_i\|^2/(2\sigma^2)\bigr)$.
+\end{itemize}
+
+\textbf{Kernels.}
+\begin{itemize}
+\item Kernel trick: $k(x,x')=\phi(x)\cdot\phi(x')$ avoids explicit high-dim representation.
+\item \textbf{Mercer condition}: $k$ must be positive definite.
+\item \textbf{Representer Theorem}: for regularized problems in an RKHS, solution is $f^*(x)=\sum_i \alpha_i k(x_i,x)$.
+\item SVM with kernel:
+\[
+\max_\alpha \sum_i \alpha_i -\tfrac12 \sum_{i,j}\alpha_i\alpha_j\,y_i y_j\,k(x_i,x_j).
+\]
+\end{itemize}
+
+\vfill
+\textbf{References (Lec5):}
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item T. Jebara, \emph{Course Notes, ML Topics 3,5,6}.
+\item R. Castro, \emph{2DI70 - Statistical Learning Theory}.
+\item A. Gretton, \emph{Intro to RKHS}.
+\item P. Bartlett, H. Lei, \emph{Representer theorem, kernel examples}.
+\end{itemize}
+
+\end{multicols}
+\end{document}
