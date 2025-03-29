@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  navsim:
+    image: gcr.io/nyumlstudy/navsim-notebook:latest
+    container_name: navsim
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./dataset:/navsim_workspace/dataset
+      - ./code:/navsim_workspace/code
