@@ -18,4 +18,10 @@ else
     echo "[INFO] Dataset already exists at $DATASET_DIR. Skipping download."
 fi
 
-exec "$@"
+echo "[INFO] Launching Jupyter Notebook on :8888 and VS Code Server on :8080..."
+
+# Start Jupyter Notebook in the background
+jupyter notebook --notebook-dir=/navsim_workspace --ip=0.0.0.0 --allow-root --no-browser &
+
+# Start VS Code Server (foreground)
+exec code-server /navsim_workspace

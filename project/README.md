@@ -26,3 +26,14 @@ docker run -it --rm -v /path/to/navsim_data:/navsim_workspace/dataset navsim
 
 
 These commands will build the image from your Dockerfile and run it interactively. The -v option mounts your local data folder into the container so that once the data is downloaded, it will persist between runs.
+
+
+Notes: 
+Step 0: 
+- Setup Navsim, baseline algorithms, and the dataset
+Step 1: 
+- Utilize pretrained ijepa encoder for ijepa/vjepa, finetune MLP only
+Step 2:
+- finetune whole network
+Step 3:
+Explore planning using world models 
