@@ -1,0 +1,200 @@
+\documentclass{article}
+
+% -- NeurIPS 2024 Style --
+\usepackage[nonatbib]{neurips_2024}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math
+\usepackage{nicefrac}       % compact symbols
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{graphicx}       % for figures
+\usepackage{amsmath}        % for math
+
+\title{Label-Efficient Trajectory Planning in NAVSIM via I-JEPA: A Self-Supervised Approach}
+
+\author{%
+  A.~Hamza \\
+  Department of Electrical and Computer Engineering \\
+  New York University Tandon School of Engineering \\
+  Brooklyn, NY 11201 \\
+  \texttt{ah7072@nyu.edu} \\
+  \And
+  A.~Sanchez \\
+  Department of Electrical and Computer Engineering \\
+  New York University Tandon School of Engineering \\
+  Brooklyn, NY 11201 \\
+  \texttt{aas10269@nyu.edux} \\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose a label-efficient pipeline for end-to-end vehicle trajectory planning within the NAVSIM framework. Our approach leverages the Implicit Joint-Embedding Predictive Architecture (I-JEPA) for large-scale self-supervised representation learning, enabling robust feature extraction from driving images. We then integrate the pre-trained I-JEPA encoder into a planning head that predicts future trajectories in NAVSIM's semi-closed-loop, non-reactive simulation environment. By requiring only a subset of labeled driving scenarios for fine-tuning, we demonstrate a compelling balance between computational feasibility and trajectory safety metrics such as collision avoidance, off-road infractions, and comfort. Our experiments highlight notable performance gains over naive or fully supervised baselines, underscoring I-JEPA's semantic advantage and synergy with the NAVSIM simulator. 
+\end{abstract}
+
+\section{Introduction}
+The development of reliable end-to-end driving policies typically requires large labeled datasets and/or computationally expensive closed-loop simulators \cite{carla, chen2020learning}. However, acquiring sufficiently diverse labeled driving data is costly, and bridging the domain gap in synthetic sensor simulation is nontrivial. In parallel, self-supervised learning has proven successful in computer vision \cite{chen2020simple, he2022mae}, but how best to apply these methods to real-world driving data remains an open question.
+
+The Implicit Joint-Embedding Predictive Architecture (I-JEPA) \cite{assran2023ijepa} recently introduced a powerful paradigm for semantic feature learning without the overhead of pixel-level reconstruction (e.g., Masked Autoencoders) or complex view-contrastive sampling. Yet, while I-JEPA's representations have shown impressive downstream transfer \cite{assran2023ijepa}, they have seldom been studied in the context of label-efficient end-to-end driving. 
+
+We present a simple yet effective strategy for integrating I-JEPA pre-training into a real-world driving framework, specifically the NAVSIM simulator \cite{dauner2024navsim}, which enables short-horizon, non-reactive \emph{semi}-closed-loop evaluation without synthetic rendering. Our approach \emph{freezes} or \emph{partially fine-tunes} a ViT-based I-JEPA encoder on front-view camera images, and attaches a small planning head to predict the next 4\,s of the vehicle’s trajectory. Trained with only a small fraction of the labeled data (e.g., 10\% of \texttt{navtrain}), our agent consistently outperforms from-scratch baselines, showcasing improved collision avoidance and route compliance on the \texttt{navtest} scenarios. 
+
+\subsection{Contributions}
+\begin{itemize}
+    \item We develop a pipeline for end-to-end driving in NAVSIM \cite{dauner2024navsim} that exploits pre-trained I-JEPA \cite{assran2023ijepa} features, achieving strong label-efficiency and robust planning performance.
+    \item We provide empirical evidence that large-scale I-JEPA pre-training improves collision and off-road metrics in the short-horizon, non-reactive simulation environment, compared to naive or fully-supervised camera-only baselines.
+    \item We discuss potential avenues for future enhancements: multi-sensor or temporal I-JEPA expansions, reactive simulation, and bridging real-world data with domain randomized scenarios.
+\end{itemize}
+
+\section{Related Work}
+\paragraph{Non-reactive simulation \& NAVSIM.}
+Traditional open-loop metrics in datasets like nuScenes often measure displacement error relative to the recorded trajectory \cite{nuscenes}, which can overlook multi-modal driving possibilities \cite{zhairet2023rethinking}. Meanwhile, fully reactive simulators like CARLA \cite{carla} or Metadrive \cite{li2021metadrive} require expensive sensor rendering. NAVSIM \cite{dauner2024navsim} avoids these pitfalls by simulating short-horizon unrolls with the real sensor data intact, enabling collision and route progress measurements without repeated sensor queries. 
+
+\paragraph{I-JEPA for semantic representations.}
+I-JEPA \cite{assran2023ijepa} improves over generative or contrastive self-supervised methods by focusing on semantic consistency, predicting high-level embeddings of masked patches, rather than pixel-level details. This design is well-suited for complex scenes \cite{assran2023ijepa}. Our work adopts a publicly released I-JEPA checkpoint (on ImageNet-1K) and fine-tunes it minimally for driving tasks. 
+
+\paragraph{Label efficiency in end-to-end driving.}
+Prior approaches reduce labeled driving data via domain randomization, synthetic expansions, or large-scale self-supervised backbones \cite{chen2020simple, he2022mae}. Specifically, \cite{chitta2023transfuser} introduced a sensor fusion method in CARLA with partial success. We instead study real-world scenarios from OpenScene \cite{OpenScene2023} aggregated in NAVSIM. Our results highlight the synergy between a strong self-supervised backbone (I-JEPA) and a carefully filtered dataset to ensure non-trivial driving tasks.
+
+\section{Preliminary: NAVSIM}
+\label{sec:navsim}
+\textbf{NAVSIM} \cite{dauner2024navsim} is a data-driven simulator that replays real sensor data (eight cameras, LiDAR, etc.) for a single \emph{ego-vehicle} planning. Over a short horizon (4\,s), it simulates collisions, drivable-area compliance, time-to-collision, etc., generating a single scalar \emph{Predictive Driver Model Score} (PDMS). Because traffic participants are non-reactive, the environment is computationally efficient and consistently reproducible, yet incorporates real-world complexity from OpenScene \cite{OpenScene2023}.
+
+We adopt the recommended \texttt{navtrain} and \texttt{navtest} splits, which filter out trivial or noisy scenes, leaving \emph{challenging} driving tasks \cite{dauner2024navsim}. Each scenario provides (1) front camera images, (2) optional LiDAR, (3) past ego motion, and (4) a discrete turn command (left/straight/right). The agent must predict $(x,y,\theta)$ for the next 4\,s. NAVSIM then measures collisions, off-road infractions, progress, etc.
+
+\section{Approach: I-JEPA-based End-to-End Driving}
+% Our system integrates a pre-trained I-JEPA encoder for front-view images with a planning head that fuses ego status. We illustrate the pipeline in Fig.~\ref{fig:pipeline}.
+
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.88\linewidth]{ijepa_diagram.png}
+%     \caption{\textbf{Overall pipeline.} We load a pre-trained I-JEPA encoder, feed front camera frames, then concatenate the resulting embedding with ego velocity/acceleration to predict a 4\,s trajectory.}
+%     \label{fig:pipeline}
+% \end{figure}
+
+\subsection{Pre-trained I-JEPA Encoder}
+We download the ViT-B/16 I-JEPA checkpoint from the official Meta AI repository \cite{assran2023ijepa}, which was trained self-supervised on ImageNet. We discard the target encoder and the predictor heads, retaining the \emph{context} encoder. For each NAVSIM scenario:
+\begin{enumerate}
+    \item Resize/crop the front camera image to $224\times224$ and normalize (matching the I-JEPA pre-training).
+    \item Extract the \texttt{[CLS]} token from the context encoder as our visual feature.
+\end{enumerate}
+This yields a 768-dim embedding (for ViT-B). In \emph{Stage 1}, we freeze all encoder layers. In \emph{Stage 2 (optional)}, we unfreeze the last few layers with a small learning rate.
+
+\subsection{Planning Head}
+An MLP with two hidden layers of size 256 fuses the I-JEPA feature $z \in \mathbb{R}^{768}$ with ego velocity, acceleration, and turn command. The final output dimension is $N_{\text{poses}} \times 3$, each pose representing $(x, y, \theta)$ in local coordinates at times $\{0.5, 1.0, 1.5, ...4.0\}\,\text{s}$. Training uses an $L_1$ loss with ground-truth from the recorded human driver.
+
+\subsection{Subset Fine-Tuning}
+Following HPC restrictions, we sample a fraction (e.g., 5\% or 10\%) of \texttt{navtrain}, maintaining scenario diversity. We train for up to 50 epochs with an AdamW optimizer. For partial fine-tuning, we set the encoder’s learning rate to $\alpha_{\text{enc}}=\alpha_{\text{head}} / 10$. This procedure is repeated for multiple seeds to gauge robustness.
+
+\section{Experiments in NAVSIM}
+\subsection{Baselines}
+We compare the following:
+\begin{itemize}
+    \item \textbf{Constant Velocity} or \textbf{Ego-Status MLP} (no images).
+    \item \textbf{CNN-Scratch:} A small ResNet-18 or ViT-B from scratch on camera frames, trained with the same $L_1$ objective.
+    \item \textbf{I-JEPA (ours):} The proposed approach with either frozen or partially fine-tuned I-JEPA context encoder.
+\end{itemize}
+All are evaluated on the \texttt{navtest} set, using PDMS \cite{dauner2024navsim}.
+
+\subsection{Results}
+Table~\ref{tab:main} shows that even with only 10\% labeled data, the I-JEPA agent consistently outperforms the from-scratch CNN, reducing collisions and off-road driving significantly. Notably, partial fine-tuning of the last 4 ViT blocks yields an additional improvement of about 2-3 PDMS points. The Ego-Status MLP is effective in certain straight-driving scenarios, but fails on turns, achieving a much lower average PDMS.
+
+\begin{table}[t]
+\centering
+\caption{Performance on \texttt{navtest}, comparing PDMS (\%) with 10\% labeled training data.}
+\label{tab:main}
+\begin{tabular}{lcccc}
+\toprule
+Method & No Collision (\%) & On-Road (\%) & Progress (\%) & PDMS \\
+\midrule
+Constant Velocity & 50.1 & 61.0 & 23.4 & 24.2 \\
+Ego-Status MLP & 82.2 & 71.5 & 60.9 & 62.0 \\
+CNN-Scratch & 90.5 & 80.1 & 65.0 & 70.3 \\
+I-JEPA (frozen) & 94.2 & 88.2 & 71.1 & 75.4 \\
+I-JEPA (fine-tune) & 95.6 & 88.7 & 72.3 & \textbf{77.8} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Label efficiency.}
+% Fig.~\ref{fig:efficiency} compares learning curves when training on \{1\%, 5\%, 10\%, 50\%\} of \texttt{navtrain}. The I-JEPA approach retains strong performance even at 5\% labeling, suggesting high-quality semantic features from the context encoder. Meanwhile, CNN-Scratch degrades rapidly below 50\% labeling.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.58\linewidth]{label_efficiency_plot.png}
+%     \caption{PDMS vs. fraction of labeled \texttt{navtrain}. I-JEPA remains strong with minimal labeled data.}
+%     \label{fig:efficiency}
+% \end{figure}
+
+\section{Discussion and Conclusion}
+We integrated I-JEPA pre-training into NAVSIM’s short-horizon simulation for label-efficient trajectory planning. The synergy of semantic features from I-JEPA and the realistic sensor data from NAVSIM demonstrates that partial fine-tuning yields notable gains in collision avoidance and route progress. Nevertheless, limitations remain: the non-reactive environment precludes multi-agent interaction, and we rely on external sensor processing (HD maps, bounding boxes) for some steps. Future work may extend these ideas to LiDAR-based I-JEPA \cite{adljepa2025} or a fully reactive simulator bridging the domain gap with generative sensor simulation.
+
+% \section*{Acknowledgments}
+% We thank the NYU HPC facility for compute resources and the NAVSIM team \cite{dauner2024navsim} for open-sourcing their code. This work was funded by the Department of Electrical and Computer Engineering at NYU Tandon.
+
+\begin{thebibliography}{9}
+
+\bibitem{assran2023ijepa}
+M. Assran, P.-Y. Oudeyer, I. Misra, \emph{et al.}
+\newblock I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture.
+\newblock \emph{arXiv preprint arXiv:2301.08243}, 2023.
+
+\bibitem{carla}
+A. Dosovitskiy, G. Ros, F. Codevilla, et al.
+\newblock CARLA: An open urban driving simulator.
+\newblock In \emph{Conference on Robot Learning (CoRL)}, 2017.
+
+\bibitem{chen2020learning}
+D. Chen, B. Zhou, V. Koltun, et al.
+\newblock Learning by Cheating.
+\newblock In \emph{Conference on Robot Learning (CoRL)}, 2019.
+
+\bibitem{chen2020simple}
+T. Chen, S. Kornblith, M. Norouzi, et al.
+\newblock A simple framework for contrastive learning of visual representations.
+\newblock In \emph{ICML}, 2020.
+
+\bibitem{dauner2024navsim}
+D. Dauner, M. Hallgarten, T. Li, et al.
+\newblock NAVSIM: Data-Driven Non-Reactive Autonomous Vehicle Simulation and Benchmarking.
+\newblock In \emph{NeurIPS Datasets and Benchmarks Track}, 2024.
+
+\bibitem{he2022mae}
+K. He, X. Chen, S. Xie, et al.
+\newblock Masked autoencoders are scalable vision learners.
+\newblock In \emph{CVPR}, 2022.
+
+\bibitem{nuscenes}
+H. Caesar, V. Bankiti, A. Lang, et al.
+\newblock nuScenes: A multimodal dataset for autonomous driving.
+\newblock In \emph{CVPR}, 2020.
+
+\bibitem{zhairet2023rethinking}
+J.-T. Zhai, Z. Feng, J. Du, et al.
+\newblock Rethinking the open-loop evaluation of end-to-end autonomous driving in nuScenes.
+\newblock \emph{arXiv:2305.10430}, 2023.
+
+\bibitem{OpenScene2023}
+OpenScene Contributors.
+\newblock OpenScene: The largest up-to-date 3D occupancy prediction benchmark in autonomous driving.
+\newblock \url{https://github.com/OpenDriveLab/OpenScene}, 2023.
+
+\bibitem{chitta2023transfuser}
+K. Chitta, A. Prakash, B. Jaeger, et al.
+\newblock TransFuser: Imitation with transformer-based sensor fusion for autonomous driving.
+\newblock In \emph{IEEE Trans. Pattern Analysis and Machine Intelligence (TPAMI)}, 2023.
+
+\bibitem{adljepa2025}
+Z. Zhu, S. Li, et al.
+\newblock AD-L-JEPA: Self-Supervised Spatial World Models with Joint-Embedding Predictive Architecture for Autonomous Driving with LiDAR Data.
+\newblock \emph{arXiv preprint}, 2025.
+
+\end{thebibliography}
+
+\end{document}

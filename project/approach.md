@@ -1,7 +1,5 @@
 **Project Report Outline: Applying I-JEPA to NAVSIM Planning**
 
-**(Adapt your existing Lit Review for Sections 1, 2, 4)**
-
 **Abstract:**
 *   Briefly introduce the challenge of data-efficient representation learning for autonomous driving planning in NAVSIM.
 *   Introduce I-JEPA as a promising self-supervised method for learning semantic visual features.
