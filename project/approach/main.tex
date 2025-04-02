@@ -86,7 +86,21 @@ For standardized training and testing, NAVSIM provides curated data splits, \tex
     \item Past ego motion history (velocity and acceleration).
     \item A discrete driving command (e.g., left, straight, right) derived from the planned route.
 \end{enumerate}
-While other sensor data like LiDAR is available, our approach focuses primarily on leveraging the visual input via the I-JEPA encoder.
+While other sensor data like LiDAR is available, our approach focuses primarily on leveraging the visual input via the I-JEPA encoder as shown in Figure~\ref{fig:navsim_scenario}. 
+
+\begin{figure}
+    \centering
+    % Resize the whole picture to fit the line width
+    \resizebox{\linewidth}{!}{% Add this line
+    \includegraphics[width=0.8\linewidth]{images/data-sample-1.jpg}
+    \hfill
+    \includegraphics[width=0.8\linewidth]{images/data-sample-2.jpg}
+    }
+    \caption{NAVSIM frames of various cameras and sensors}
+    \label{fig:navsim_scenario}
+\end{figure}
+
+
 \section{Approach: I-JEPA-based End-to-End Driving}
 \label{sec:approach}
 \begin{figure}[ht]
