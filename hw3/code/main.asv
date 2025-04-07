@@ -1,0 +1,86 @@
+%% main.m
+clear; clc;
+
+%% Load Data
+load('data1.mat'); % Expects TrainingX, TrainingY, TestX, TestY
+if ~exist('TrainingX','var') || ~exist('TrainingY','var') || ...
+        ~exist('TestX','var') || ~exist('TestY','var')
+    error('Data file must contain TrainingX, TrainingY, TestX, and TestY.');
+end
+
+% Ensure labels are column vectors
+TrainingY = TrainingY(:);
+TestY = TestY(:);
+
+%% Compute Kernel Matrix for Training Data (RBF Kernel)
+N = size(TrainingX, 1);
+D_train = pdist2(TrainingX, TrainingX, 'euclidean').^2;
+sigma_k_sq = sum(D_train(:)) / (N^2);
+K_train = exp(-D_train/(2*sigma_k_sq));
+
+%% Set Optimizer Type and Hyperparameters
+% Options: 'GD', 'SGD', 'BFGS', 'LBFGS'
+optimizerType = 'GD';  % Change this to swap optimizer
+
+lambda = 0.1;     % Regularization parameter
+eta = 0.01;       % Learning rate (for GD and SGD)
+tol = 1e-6;       % Convergence tolerance
+maxIter = 1000;   % Maximum iterations
+memorySize = 10;  % Memory size for L-BFGS (if used)
+
+%% Train Kernel Logistic Regression Model
+switch optimizerType
+    case 'GD'
+        fprintf('Using Gradient Descent...\n');
+        omega = gd(K_train, TrainingY, lambda, eta, tol, maxIter);
+    % case 'SGD'
+    %     fprintf('Using Stochastic Gradient Descent...\n');
+    %     omega = stochasticGradientDescent(K_train, TrainingY, lambda, eta, tol, maxIter);
+    % case 'BFGS'
+    %     fprintf('Using BFGS...\n');
+    %     omega = bfgsOptimizer(K_train, TrainingY, lambda, tol, maxIter);
+    % case 'LBFGS'
+    %     fprintf('Using L-BxFGS...\n');
+    %     omega = lbfgsOptimizer(K_train, TrainingY, lambda, tol, maxIter, memorySize);
+    otherwise
+        error('Unknown optimizer type.');
+end
+
+%% Evaluate Model on Test Data
+% Compute kernel matrix between test and training data
+D_test = pdist2(TestX, TrainingX, 'euclidean').^2;
+K_test = exp(-D_test/(2*sigma_k_sq));
+
+% Compute decision values for test data
+a_test = K_test * omega;
+
+% Compute predicted probabilities using the sigmoid function
+p_test = 1 ./ (1 + exp(-a_test));
+
+% Convert probabilities to class labels (threshold at 0.5)
+predictedLabels = ones(size(p_test));
+predictedLabels(p_test < 0.5) = -1;
+
+% Compute and display accuracy
+accuracy = mean(predictedLabels == TestY);
+fprintf('Test Accuracy using %s: %.2f%%\n', optimizerType, accuracy * 100);
+
+%% Perform PCA on Test Data
+[coeff, score, ~, ~, explained, mu] = pca(TestX);
+
+%% Plot PCA projection colored by predicted labels vs. true labels
+figure;
+
+% Plot predicted labels
+subplot(1,2,1);
+gscatter(score(:,1), score(:,2), predictedLabels);
+title('PCA of Test Data (Predicted Labels)');
+xlabel('Principal Component 1');
+ylabel('Principal Component 2');
+
+% Plot true labels
+subplot(1,2,2);
+gscatter(score(:,1), score(:,2), TestY);
+title('PCA of Test Data (True Labels)');
+xlabel('Principal Component 1');
+ylabel('Principal Component 2');
