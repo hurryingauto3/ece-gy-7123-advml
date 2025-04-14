@@ -1,0 +1,1622 @@
+Loading data...
+Data loaded. N_train=10000, N_test=1000
+Calculating sigma^2 and Full Kernel Matrix K_train...
+Sigma^2 = 103.468. K_train calculated.
+Calculating Full Test Kernel Matrix K_test_full...
+K_test_full calculated.
+Setting up experiments...
+
+===== Running GD Experiment =====
+--- GD with eta=1e-06 ---
+GD Iter 0: Cost = 6931.47, Grad Norm = 12761.8
+GD Iter 50: Cost = 20100.9, Grad Norm = 299795
+GD Iter 100: Cost = 26405.5, Grad Norm = 298880
+GD Iter 150: Cost = 24807, Grad Norm = 270842
+GD Iter 200: Cost = 4606.57, Grad Norm = 16364.9
+GD Iter 250: Cost = 4189.34, Grad Norm = 2505.83
+GD Iter 300: Cost = 3903.55, Grad Norm = 2273.04
+GD Iter 350: Cost = 3669.92, Grad Norm = 2276.48
+GD Iter 400: Cost = 20661.2, Grad Norm = 251099
+GD Iter 450: Cost = 3971.08, Grad Norm = 3347.74
+GD Iter 500: Cost = 3750.42, Grad Norm = 2004.85
+GD (eta=1e-06) Final Accuracy: 88.60%
+--- GD with eta=1e-05 ---
+GD Iter 0: Cost = 6931.47, Grad Norm = 12761.8
+GD Iter 50: Cost = 118627, Grad Norm = 305544
+GD Iter 100: Cost = 203931, Grad Norm = 299164
+GD Iter 150: Cost = 265497, Grad Norm = 288341
+GD Iter 200: Cost = 38381.7, Grad Norm = 5057.93
+GD Iter 250: Cost = 33997.1, Grad Norm = 2841.51
+GD Iter 300: Cost = 30206.7, Grad Norm = 2671.25
+GD Iter 350: Cost = 26826.1, Grad Norm = 2526.9
+GD Iter 400: Cost = 23784.2, Grad Norm = 2409.36
+GD Iter 450: Cost = 21025.6, Grad Norm = 2284.81
+GD Iter 500: Cost = 18542.3, Grad Norm = 2171
+GD (eta=1e-05) Final Accuracy: 89.30%
+--- GD with eta=0.0001 ---
+GD Iter 0: Cost = 6931.47, Grad Norm = 12761.8
+GD Iter 50: Cost = 1.1029e+06, Grad Norm = 302036
+GD Iter 100: Cost = 2.03559e+06, Grad Norm = 299167
+GD Iter 150: Cost = 2.66148e+06, Grad Norm = 288766
+GD Iter 200: Cost = 386680, Grad Norm = 6114.22
+GD Iter 250: Cost = 341807, Grad Norm = 3734.5
+GD Iter 300: Cost = 303389, Grad Norm = 4218.29
+GD Iter 350: Cost = 269469, Grad Norm = 6103.79
+GD Iter 400: Cost = 238047, Grad Norm = 3640.82
+GD Iter 450: Cost = 209906, Grad Norm = 2920.37
+GD Iter 500: Cost = 184457, Grad Norm = 2355.24
+GD (eta=0.0001) Final Accuracy: 89.30%
+--- GD with eta=0.001 ---
+GD Iter 0: Cost = 6931.47, Grad Norm = 12761.8
+GD Iter 50: Cost = 1.10056e+07, Grad Norm = 301908
+GD Iter 100: Cost = 2.02849e+07, Grad Norm = 299234
+GD Iter 150: Cost = 2.70786e+07, Grad Norm = 291053
+GD Iter 200: Cost = 4.22819e+06, Grad Norm = 11453.4
+GD Iter 250: Cost = 3.67893e+06, Grad Norm = 4015.91
+GD Iter 300: Cost = 3.23184e+06, Grad Norm = 4971.83
+GD Iter 350: Cost = 2.84089e+06, Grad Norm = 8090.43
+GD Iter 400: Cost = 2.47241e+06, Grad Norm = 3852.04
+GD Iter 450: Cost = 2.15053e+06, Grad Norm = 3316.34
+GD Iter 500: Cost = 4.22691e+07, Grad Norm = 312360
+GD (eta=0.001) Final Accuracy: 50.00%
+
+===== Running SGD Experiment =====
+--- SGD with eta=1e-06, bs=1 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 4349.62, Full Grad Norm = 4646.66
+SGD Epoch 100: Full Cost = 3828.6, Full Grad Norm = 2974.36
+SGD Epoch 150: Full Cost = 3614.91, Full Grad Norm = 2427.65
+SGD Epoch 200: Full Cost = 3500.86, Full Grad Norm = 5580.49
+SGD Epoch 250: Full Cost = 3425.62, Full Grad Norm = 1962.04
+SGD Epoch 300: Full Cost = 3375.96, Full Grad Norm = 1778.23
+SGD Epoch 350: Full Cost = 3340.32, Full Grad Norm = 1708.69
+SGD Epoch 400: Full Cost = 3313.75, Full Grad Norm = 1636.61
+SGD Epoch 450: Full Cost = 3293.38, Full Grad Norm = 1636.67
+SGD Epoch 500: Full Cost = 3277.38, Full Grad Norm = 1581.84
+SGD (eta=1e-06, bs=1) Final Accuracy: 89.20%
+--- SGD with eta=1e-05, bs=1 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 3301.31, Full Grad Norm = 16545.2
+SGD Epoch 100: Full Cost = 3217.82, Full Grad Norm = 6479.47
+SGD Epoch 150: Full Cost = 3258.28, Full Grad Norm = 24334.2
+SGD Epoch 200: Full Cost = 3199.01, Full Grad Norm = 1998.41
+SGD Epoch 250: Full Cost = 3198.37, Full Grad Norm = 2544.22
+SGD Epoch 300: Full Cost = 3224.73, Full Grad Norm = 16885.2
+SGD Epoch 350: Full Cost = 3224.94, Full Grad Norm = 17050.9
+SGD Epoch 400: Full Cost = 3204.04, Full Grad Norm = 8469.21
+SGD Epoch 450: Full Cost = 3197.84, Full Grad Norm = 2692.38
+SGD Epoch 500: Full Cost = 3200.83, Full Grad Norm = 6052.58
+SGD (eta=1e-05, bs=1) Final Accuracy: 89.70%
+--- SGD with eta=0.0001, bs=1 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 3249.82, Full Grad Norm = 26253.3
+SGD Epoch 100: Full Cost = 3342.46, Full Grad Norm = 40411.9
+SGD Epoch 150: Full Cost = 3188.05, Full Grad Norm = 9121.93
+SGD Epoch 200: Full Cost = 3192.28, Full Grad Norm = 10932.6
+SGD Epoch 250: Full Cost = 3183.7, Full Grad Norm = 3118.91
+SGD Epoch 300: Full Cost = 3312.91, Full Grad Norm = 36810.6
+SGD Epoch 350: Full Cost = 3180.09, Full Grad Norm = 1455.16
+SGD Epoch 400: Full Cost = 3212.53, Full Grad Norm = 18118.6
+SGD Epoch 450: Full Cost = 3195.72, Full Grad Norm = 11572.3
+SGD Epoch 500: Full Cost = 3190.68, Full Grad Norm = 9742.64
+SGD (eta=0.0001, bs=1) Final Accuracy: 90.20%
+--- SGD with eta=0.001, bs=1 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 4578.74, Full Grad Norm = 115127
+SGD Epoch 100: Full Cost = 3172.07, Full Grad Norm = 31446.9
+SGD Epoch 150: Full Cost = 3181.77, Full Grad Norm = 34469.1
+SGD Epoch 200: Full Cost = 3071.21, Full Grad Norm = 2920.34
+SGD Epoch 250: Full Cost = 4263.74, Full Grad Norm = 100106
+SGD Epoch 300: Full Cost = 9484.44, Full Grad Norm = 220404
+SGD Epoch 350: Full Cost = 4027.88, Full Grad Norm = 91841.8
+SGD Epoch 400: Full Cost = 3055.96, Full Grad Norm = 1105.84
+SGD Epoch 450: Full Cost = 3921.48, Full Grad Norm = 85481.7
+SGD Epoch 500: Full Cost = 4010.88, Full Grad Norm = 90409.6
+SGD (eta=0.001, bs=1) Final Accuracy: 84.30%
+--- SGD with eta=1e-06, bs=100 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 6864.66, Full Grad Norm = 11349
+SGD Epoch 100: Full Cost = 6801.16, Full Grad Norm = 11207.9
+SGD Epoch 150: Full Cost = 6739.28, Full Grad Norm = 11069.1
+SGD Epoch 200: Full Cost = 6678.99, Full Grad Norm = 10932.4
+SGD Epoch 250: Full Cost = 6620.24, Full Grad Norm = 10797.8
+SGD Epoch 300: Full Cost = 6562.98, Full Grad Norm = 10665.3
+SGD Epoch 350: Full Cost = 6507.18, Full Grad Norm = 10534.9
+SGD Epoch 400: Full Cost = 6452.79, Full Grad Norm = 10406.7
+SGD Epoch 450: Full Cost = 6399.78, Full Grad Norm = 10280.5
+SGD Epoch 500: Full Cost = 6348.09, Full Grad Norm = 10156.4
+SGD (eta=1e-06, bs=100) Final Accuracy: 87.70%
+--- SGD with eta=1e-05, bs=100 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 6348.12, Full Grad Norm = 10208.2
+SGD Epoch 100: Full Cost = 5896.54, Full Grad Norm = 9026.1
+SGD Epoch 150: Full Cost = 5541.96, Full Grad Norm = 8081.2
+SGD Epoch 200: Full Cost = 5259.54, Full Grad Norm = 7297.62
+SGD Epoch 250: Full Cost = 5031.26, Full Grad Norm = 6660.94
+SGD Epoch 300: Full Cost = 4844.02, Full Grad Norm = 6103.18
+SGD Epoch 350: Full Cost = 4688.35, Full Grad Norm = 5609.45
+SGD Epoch 400: Full Cost = 4557.32, Full Grad Norm = 5210.71
+SGD Epoch 450: Full Cost = 4445.75, Full Grad Norm = 4871.2
+SGD Epoch 500: Full Cost = 4349.76, Full Grad Norm = 4572.55
+SGD (eta=1e-05, bs=100) Final Accuracy: 87.40%
+--- SGD with eta=0.0001, bs=100 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 4350.28, Full Grad Norm = 5728.27
+SGD Epoch 100: Full Cost = 3828.61, Full Grad Norm = 3117.05
+SGD Epoch 150: Full Cost = 3614.93, Full Grad Norm = 2535.3
+SGD Epoch 200: Full Cost = 3499.31, Full Grad Norm = 3675.15
+SGD Epoch 250: Full Cost = 3426.17, Full Grad Norm = 3195.14
+SGD Epoch 300: Full Cost = 3377.21, Full Grad Norm = 4125.7
+SGD Epoch 350: Full Cost = 3340.86, Full Grad Norm = 2977.23
+SGD Epoch 400: Full Cost = 3313.85, Full Grad Norm = 2008.01
+SGD Epoch 450: Full Cost = 3293.37, Full Grad Norm = 1654.1
+SGD Epoch 500: Full Cost = 3278.05, Full Grad Norm = 3118.79
+SGD (eta=0.0001, bs=100) Final Accuracy: 89.20%
+--- SGD with eta=0.001, bs=100 ---
+SGD Epoch 0: Full Cost = 6931.47, Full Grad Norm = 12761.8
+SGD Epoch 50: Full Cost = 3276.07, Full Grad Norm = 2886.27
+SGD Epoch 100: Full Cost = 3213.98, Full Grad Norm = 3299.27
+SGD Epoch 150: Full Cost = 3209.22, Full Grad Norm = 9390.04
+SGD Epoch 200: Full Cost = 3199.05, Full Grad Norm = 3451.25
+SGD Epoch 250: Full Cost = 3216.81, Full Grad Norm = 14380.4
+SGD Epoch 300: Full Cost = 3202.21, Full Grad Norm = 7587.15
+SGD Epoch 350: Full Cost = 3197.09, Full Grad Norm = 1494.98
+SGD Epoch 400: Full Cost = 3200.58, Full Grad Norm = 6331.27
+SGD Epoch 450: Full Cost = 3202.4, Full Grad Norm = 7577.89
+SGD Epoch 500: Full Cost = 3197.5, Full Grad Norm = 2351.17
+SGD (eta=0.001, bs=100) Final Accuracy: 89.70%
+
+--- Preparing Reduced Data for (L)BFGS ---
+Subsampling training data (2000 per class)...
+Subsampled data size: 4000 x 784
+Calculating reduced kernel matrix (K_reduced)...
+Reduced kernel matrix size: 4000 x 4000
+Calculating reduced test kernel matrix (K_test_reduced)...
+
+===== Running BFGS Experiment =====
+BFGS Iter 0: Cost = 2772.59, Grad Norm = 3353.03
+BFGS Iter 10: Cost = 1177.55, Grad Norm = 714.687, Step Size = 0.0625
+BFGS Iter 20: Cost = 793.125, Grad Norm = 498.226, Step Size = 0.25
+BFGS Iter 30: Cost = 661.209, Grad Norm = 71.2013, Step Size = 0.5
+BFGS Iter 40: Cost = 645.402, Grad Norm = 1.54384, Step Size = 0.5
+BFGS Iter 50: Cost = 645.276, Grad Norm = 9.87816, Step Size = 1
+BFGS Iter 60: Cost = 645.275, Grad Norm = 0.0526164, Step Size = 1
+Warning: BFGS Curvature condition <= 0 at iter 70. Skipping H update.
+BFGS Iter 70: Cost = 645.275, Grad Norm = 9.45158e-05, Step Size = 1
+Warning: BFGS Curvature condition <= 0 at iter 71. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 72. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 73. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 74. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 75. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 76. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 77. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 78. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 79. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 80. Skipping H update.
+BFGS Iter 80: Cost = 645.275, Grad Norm = 3.58602e-05, Step Size = 3.72529e-09
+Warning: BFGS Curvature condition <= 0 at iter 81. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 82. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 83. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 84. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 85. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 86. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 87. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 88. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 89. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 90. Skipping H update.
+BFGS Iter 90: Cost = 645.275, Grad Norm = 3.58602e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 91. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 92. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 93. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 94. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 95. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 96. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 97. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 98. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 99. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 100. Skipping H update.
+BFGS Iter 100: Cost = 645.275, Grad Norm = 4.1038e-05, Step Size = 2.91038e-11
+Warning: BFGS Curvature condition <= 0 at iter 101. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 102. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 103. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 104. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 105. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 106. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 107. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 108. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 109. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 110. Skipping H update.
+BFGS Iter 110: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.86265e-09
+Warning: BFGS Curvature condition <= 0 at iter 111. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 112. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 113. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 114. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 115. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 116. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 117. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 118. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 119. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 120. Skipping H update.
+BFGS Iter 120: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 2.91038e-11
+Warning: BFGS Curvature condition <= 0 at iter 121. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 122. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 123. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 124. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 125. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 126. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 127. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 128. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 129. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 130. Skipping H update.
+BFGS Iter 130: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 2.91038e-11
+Warning: BFGS Curvature condition <= 0 at iter 131. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 132. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 133. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 134. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 135. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 136. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 137. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 138. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 139. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 140. Skipping H update.
+BFGS Iter 140: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 141. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 142. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 143. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 144. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 145. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 146. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 147. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 148. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 149. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 150. Skipping H update.
+BFGS Iter 150: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 2.91038e-11
+Warning: BFGS Curvature condition <= 0 at iter 151. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 152. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 153. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 154. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 155. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 156. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 157. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 158. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 159. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 160. Skipping H update.
+BFGS Iter 160: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.16415e-10
+Warning: BFGS Curvature condition <= 0 at iter 161. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 162. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 163. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 164. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 165. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 166. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 167. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 168. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 169. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 170. Skipping H update.
+BFGS Iter 170: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 171. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 172. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 173. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 174. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 175. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 176. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 177. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 178. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 179. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 180. Skipping H update.
+BFGS Iter 180: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 181. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 182. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 183. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 184. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 185. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 186. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 187. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 188. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 189. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 190. Skipping H update.
+BFGS Iter 190: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 191. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 192. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 193. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 194. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 195. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 196. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 197. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 198. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 199. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 200. Skipping H update.
+BFGS Iter 200: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 201. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 202. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 203. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 204. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 205. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 206. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 207. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 208. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 209. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 210. Skipping H update.
+BFGS Iter 210: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 211. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 212. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 213. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 214. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 215. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 216. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 217. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 218. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 219. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 220. Skipping H update.
+BFGS Iter 220: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 221. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 222. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 223. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 224. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 225. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 226. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 227. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 228. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 229. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 230. Skipping H update.
+BFGS Iter 230: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 231. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 232. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 233. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 234. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 235. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 236. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 237. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 238. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 239. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 240. Skipping H update.
+BFGS Iter 240: Cost = 645.275, Grad Norm = 2.30182e-05, Step Size = 9.31323e-10
+Warning: BFGS Curvature condition <= 0 at iter 241. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 242. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 243. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 244. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 245. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 246. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 247. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 248. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 249. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 250. Skipping H update.
+BFGS Iter 250: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 1.16415e-10
+Warning: BFGS Curvature condition <= 0 at iter 251. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 252. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 253. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 254. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 255. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 256. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 257. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 258. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 259. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 260. Skipping H update.
+BFGS Iter 260: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 1.45519e-11
+Warning: BFGS Curvature condition <= 0 at iter 261. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 262. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 263. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 264. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 265. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 266. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 267. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 268. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 269. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 270. Skipping H update.
+BFGS Iter 270: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 2.32831e-10
+Warning: BFGS Curvature condition <= 0 at iter 271. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 272. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 273. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 274. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 275. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 276. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 277. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 278. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 279. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 280. Skipping H update.
+BFGS Iter 280: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 2.91038e-11
+Warning: BFGS Curvature condition <= 0 at iter 281. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 282. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 283. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 284. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 285. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 286. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 287. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 288. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 289. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 290. Skipping H update.
+BFGS Iter 290: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 291. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 292. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 293. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 294. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 295. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 296. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 297. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 298. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 299. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 300. Skipping H update.
+BFGS Iter 300: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 301. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 302. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 303. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 304. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 305. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 306. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 307. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 308. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 309. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 310. Skipping H update.
+BFGS Iter 310: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 311. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 312. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 313. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 314. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 315. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 316. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 317. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 318. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 319. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 320. Skipping H update.
+BFGS Iter 320: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 321. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 322. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 323. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 324. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 325. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 326. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 327. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 328. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 329. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 330. Skipping H update.
+BFGS Iter 330: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 331. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 332. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 333. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 334. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 335. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 336. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 337. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 338. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 339. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 340. Skipping H update.
+BFGS Iter 340: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 341. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 342. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 343. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 344. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 345. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 346. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 347. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 348. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 349. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 350. Skipping H update.
+BFGS Iter 350: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 351. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 352. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 353. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 354. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 355. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 356. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 357. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 358. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 359. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 360. Skipping H update.
+BFGS Iter 360: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 361. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 362. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 363. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 364. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 365. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 366. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 367. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 368. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 369. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 370. Skipping H update.
+BFGS Iter 370: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 371. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 372. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 373. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 374. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 375. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 376. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 377. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 378. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 379. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 380. Skipping H update.
+BFGS Iter 380: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 381. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 382. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 383. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 384. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 385. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 386. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 387. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 388. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 389. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 390. Skipping H update.
+BFGS Iter 390: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 391. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 392. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 393. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 394. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 395. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 396. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 397. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 398. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 399. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 400. Skipping H update.
+BFGS Iter 400: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 401. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 402. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 403. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 404. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 405. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 406. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 407. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 408. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 409. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 410. Skipping H update.
+BFGS Iter 410: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 411. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 412. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 413. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 414. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 415. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 416. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 417. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 418. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 419. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 420. Skipping H update.
+BFGS Iter 420: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 421. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 422. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 423. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 424. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 425. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 426. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 427. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 428. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 429. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 430. Skipping H update.
+BFGS Iter 430: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 431. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 432. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 433. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 434. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 435. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 436. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 437. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 438. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 439. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 440. Skipping H update.
+BFGS Iter 440: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 441. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 442. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 443. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 444. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 445. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 446. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 447. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 448. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 449. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 450. Skipping H update.
+BFGS Iter 450: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 451. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 452. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 453. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 454. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 455. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 456. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 457. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 458. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 459. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 460. Skipping H update.
+BFGS Iter 460: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 461. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 462. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 463. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 464. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 465. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 466. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 467. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 468. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 469. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 470. Skipping H update.
+BFGS Iter 470: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 471. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 472. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 473. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 474. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 475. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 476. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 477. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 478. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 479. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 480. Skipping H update.
+BFGS Iter 480: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 481. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 482. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 483. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 484. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 485. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 486. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 487. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 488. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 489. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 490. Skipping H update.
+BFGS Iter 490: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Warning: BFGS Curvature condition <= 0 at iter 491. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 492. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 493. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 494. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 495. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 496. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 497. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 498. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 499. Skipping H update.
+Warning: BFGS Curvature condition <= 0 at iter 500. Skipping H update.
+BFGS Iter 500: Cost = 645.275, Grad Norm = 2.30183e-05, Step Size = 7.27596e-12
+Manual BFGS finished after 500 iterations.
+BFGS Final Accuracy: 95.70%
+
+===== Running L-BFGS Experiment =====
+--- L-BFGS with m=5 ---
+Starting Manual L-BFGS (Memory m=5, Max Iter: 500, Tol: 1e-05)...
+L-BFGS Iter 0: Cost = 2772.59, Grad Norm = 3353.03
+L-BFGS Iter 10: Cost = 945.46, Grad Norm = 128.867, Step Size = 1
+L-BFGS Iter 20: Cost = 859.839, Grad Norm = 250.076, Step Size = 1
+L-BFGS Iter 30: Cost = 815.172, Grad Norm = 149.175, Step Size = 0.00195312
+L-BFGS Iter 40: Cost = 782.048, Grad Norm = 62.9381, Step Size = 0.015625
+L-BFGS Iter 50: Cost = 766.301, Grad Norm = 95.6857, Step Size = 0.125
+L-BFGS Iter 60: Cost = 750.24, Grad Norm = 63.3262, Step Size = 0.00195312
+L-BFGS Iter 70: Cost = 747.652, Grad Norm = 79.9191, Step Size = 0.015625
+L-BFGS Iter 80: Cost = 746.533, Grad Norm = 19.2673, Step Size = 0.125
+L-BFGS Iter 90: Cost = 744.865, Grad Norm = 23.3785, Step Size = 0.00195312
+L-BFGS Iter 100: Cost = 725.959, Grad Norm = 243.018, Step Size = 0.000976562
+L-BFGS Iter 110: Cost = 720.829, Grad Norm = 71.3504, Step Size = 6.10352e-05
+L-BFGS Iter 120: Cost = 701.364, Grad Norm = 80.959, Step Size = 0.00390625
+L-BFGS Iter 130: Cost = 688.398, Grad Norm = 42.2706, Step Size = 0.0625
+L-BFGS Iter 140: Cost = 682.922, Grad Norm = 267.295, Step Size = 0.0078125
+L-BFGS Iter 150: Cost = 679.809, Grad Norm = 28.6832, Step Size = 0.000976562
+L-BFGS Iter 160: Cost = 677.203, Grad Norm = 109.767, Step Size = 0.25
+L-BFGS Iter 170: Cost = 674.769, Grad Norm = 128.705, Step Size = 0.00195312
+L-BFGS Iter 180: Cost = 672.28, Grad Norm = 27.1156, Step Size = 0.00195312
+L-BFGS Iter 190: Cost = 669.469, Grad Norm = 28.63, Step Size = 0.0625
+L-BFGS Iter 200: Cost = 666.054, Grad Norm = 54.9042, Step Size = 0.000244141
+L-BFGS Iter 210: Cost = 663.163, Grad Norm = 108.12, Step Size = 0.00195312
+L-BFGS Iter 220: Cost = 661.633, Grad Norm = 34.7233, Step Size = 0.015625
+L-BFGS Iter 230: Cost = 661.316, Grad Norm = 15.052, Step Size = 0.00012207
+L-BFGS Iter 240: Cost = 659.239, Grad Norm = 47.1263, Step Size = 6.10352e-05
+L-BFGS Iter 250: Cost = 658.487, Grad Norm = 21.1096, Step Size = 0.03125
+L-BFGS Iter 260: Cost = 657.932, Grad Norm = 42.1848, Step Size = 0.000244141
+L-BFGS Iter 270: Cost = 657.322, Grad Norm = 29.5904, Step Size = 0.000244141
+L-BFGS Iter 280: Cost = 657.146, Grad Norm = 13.7506, Step Size = 0.03125
+L-BFGS Iter 290: Cost = 656.352, Grad Norm = 15.2518, Step Size = 0.00012207
+L-BFGS Iter 300: Cost = 652.656, Grad Norm = 26.6327, Step Size = 6.10352e-05
+L-BFGS Iter 310: Cost = 651.528, Grad Norm = 37.5417, Step Size = 0.25
+L-BFGS Iter 320: Cost = 650.659, Grad Norm = 30.4167, Step Size = 0.000488281
+L-BFGS Iter 330: Cost = 649.361, Grad Norm = 24.1999, Step Size = 0.015625
+L-BFGS Iter 340: Cost = 647.396, Grad Norm = 16.993, Step Size = 0.0078125
+L-BFGS Iter 350: Cost = 647.129, Grad Norm = 14.9238, Step Size = 6.10352e-05
+L-BFGS Iter 360: Cost = 646.881, Grad Norm = 9.85429, Step Size = 0.000976562
+L-BFGS Iter 370: Cost = 646.479, Grad Norm = 13.8268, Step Size = 0.125
+L-BFGS Iter 380: Cost = 646.231, Grad Norm = 4.64173, Step Size = 6.10352e-05
+L-BFGS Iter 390: Cost = 646.145, Grad Norm = 2.48997, Step Size = 0.000488281
+L-BFGS Iter 400: Cost = 645.913, Grad Norm = 11.657, Step Size = 0.0625
+L-BFGS Iter 410: Cost = 645.861, Grad Norm = 36.7834, Step Size = 6.10352e-05
+L-BFGS Iter 420: Cost = 645.789, Grad Norm = 8.02758, Step Size = 0.00390625
+L-BFGS Iter 430: Cost = 645.747, Grad Norm = 3.21246, Step Size = 0.015625
+L-BFGS Iter 440: Cost = 645.626, Grad Norm = 6.64369, Step Size = 6.10352e-05
+L-BFGS Iter 450: Cost = 645.581, Grad Norm = 2.68555, Step Size = 0.00390625
+L-BFGS Iter 460: Cost = 645.565, Grad Norm = 2.99122, Step Size = 0.0078125
+L-BFGS Iter 470: Cost = 645.554, Grad Norm = 3.333, Step Size = 0.00012207
+L-BFGS Iter 480: Cost = 645.544, Grad Norm = 6.32748, Step Size = 0.00195312
+L-BFGS Iter 490: Cost = 645.526, Grad Norm = 3.46683, Step Size = 0.0625
+L-BFGS Iter 500: Cost = 645.487, Grad Norm = 3.5334, Step Size = 6.10352e-05
+Manual L-BFGS finished after 500 iterations.
+L-BFGS (m=5) Final Accuracy: 95.70%
+--- L-BFGS with m=10 ---
+Starting Manual L-BFGS (Memory m=10, Max Iter: 500, Tol: 1e-05)...
+L-BFGS Iter 0: Cost = 2772.59, Grad Norm = 3353.03
+L-BFGS Iter 10: Cost = 894.945, Grad Norm = 870.897, Step Size = 1
+L-BFGS Iter 20: Cost = 783.448, Grad Norm = 718.19, Step Size = 0.0078125
+L-BFGS Iter 30: Cost = 770.936, Grad Norm = 165.41, Step Size = 0.000976562
+L-BFGS Iter 40: Cost = 753.412, Grad Norm = 202.657, Step Size = 0.00390625
+L-BFGS Iter 50: Cost = 744.632, Grad Norm = 92.3927, Step Size = 0.000976562
+L-BFGS Iter 60: Cost = 716.61, Grad Norm = 41.6461, Step Size = 0.125
+L-BFGS Iter 70: Cost = 705.058, Grad Norm = 197.473, Step Size = 0.25
+L-BFGS Iter 80: Cost = 688.825, Grad Norm = 48.6468, Step Size = 0.25
+L-BFGS Iter 90: Cost = 675.587, Grad Norm = 133.126, Step Size = 0.03125
+L-BFGS Iter 100: Cost = 667.624, Grad Norm = 183.237, Step Size = 0.015625
+L-BFGS Iter 110: Cost = 661.619, Grad Norm = 38.4462, Step Size = 0.000976562
+L-BFGS Iter 120: Cost = 657.098, Grad Norm = 19.7831, Step Size = 0.00195312
+L-BFGS Iter 130: Cost = 655.257, Grad Norm = 49.5377, Step Size = 0.0625
+L-BFGS Iter 140: Cost = 653.703, Grad Norm = 7.84722, Step Size = 0.00390625
+L-BFGS Iter 150: Cost = 653.049, Grad Norm = 26.7406, Step Size = 0.00195312
+L-BFGS Iter 160: Cost = 652.368, Grad Norm = 42.7826, Step Size = 6.10352e-05
+L-BFGS Iter 170: Cost = 651.798, Grad Norm = 9.29547, Step Size = 0.125
+L-BFGS Iter 180: Cost = 650.62, Grad Norm = 46.9458, Step Size = 0.000976562
+L-BFGS Iter 190: Cost = 649.152, Grad Norm = 26.043, Step Size = 0.015625
+L-BFGS Iter 200: Cost = 648.807, Grad Norm = 8.98465, Step Size = 0.5
+L-BFGS Iter 210: Cost = 648.488, Grad Norm = 25.029, Step Size = 0.00195312
+L-BFGS Iter 220: Cost = 648.28, Grad Norm = 12.5866, Step Size = 0.000976562
+L-BFGS Iter 230: Cost = 648.053, Grad Norm = 13.9442, Step Size = 0.000976562
+L-BFGS Iter 240: Cost = 647.709, Grad Norm = 36.3942, Step Size = 0.03125
+L-BFGS Iter 250: Cost = 647.211, Grad Norm = 27.6101, Step Size = 0.000976562
+L-BFGS Iter 260: Cost = 646.561, Grad Norm = 90.0681, Step Size = 0.0625
+L-BFGS Iter 270: Cost = 646.276, Grad Norm = 8.00959, Step Size = 0.000244141
+L-BFGS Iter 280: Cost = 646.04, Grad Norm = 7.13551, Step Size = 0.00390625
+L-BFGS Iter 290: Cost = 645.775, Grad Norm = 5.12461, Step Size = 0.00195312
+L-BFGS Iter 300: Cost = 645.668, Grad Norm = 4.66395, Step Size = 1
+L-BFGS Iter 310: Cost = 645.619, Grad Norm = 3.93765, Step Size = 0.5
+L-BFGS Iter 320: Cost = 645.594, Grad Norm = 6.238, Step Size = 0.00390625
+L-BFGS Iter 330: Cost = 645.565, Grad Norm = 4.7399, Step Size = 0.000976562
+L-BFGS Iter 340: Cost = 645.53, Grad Norm = 2.14604, Step Size = 0.000976562
+L-BFGS Iter 350: Cost = 645.522, Grad Norm = 4.01649, Step Size = 0.00390625
+L-BFGS Iter 360: Cost = 645.505, Grad Norm = 4.53378, Step Size = 0.00012207
+L-BFGS Iter 370: Cost = 645.496, Grad Norm = 1.4386, Step Size = 0.000488281
+L-BFGS Iter 380: Cost = 645.482, Grad Norm = 5.0524, Step Size = 0.000244141
+L-BFGS Iter 390: Cost = 645.471, Grad Norm = 4.42907, Step Size = 0.00390625
+L-BFGS Iter 400: Cost = 645.416, Grad Norm = 6.07775, Step Size = 0.000244141
+L-BFGS Iter 410: Cost = 645.412, Grad Norm = 3.03533, Step Size = 0.03125
+L-BFGS Iter 420: Cost = 645.396, Grad Norm = 2.97138, Step Size = 0.03125
+L-BFGS Iter 430: Cost = 645.389, Grad Norm = 2.12738, Step Size = 0.00195312
+L-BFGS Iter 440: Cost = 645.381, Grad Norm = 3.28272, Step Size = 0.000488281
+L-BFGS Iter 450: Cost = 645.373, Grad Norm = 3.44962, Step Size = 0.000488281
+L-BFGS Iter 460: Cost = 645.368, Grad Norm = 1.46536, Step Size = 0.00390625
+L-BFGS Iter 470: Cost = 645.364, Grad Norm = 1.10101, Step Size = 0.00012207
+L-BFGS Iter 480: Cost = 645.36, Grad Norm = 0.771713, Step Size = 0.000488281
+L-BFGS Iter 490: Cost = 645.357, Grad Norm = 3.52756, Step Size = 0.000244141
+L-BFGS Iter 500: Cost = 645.341, Grad Norm = 6.3778, Step Size = 0.015625
+Manual L-BFGS finished after 500 iterations.
+L-BFGS (m=10) Final Accuracy: 95.70%
+--- L-BFGS with m=20 ---
+Starting Manual L-BFGS (Memory m=20, Max Iter: 500, Tol: 1e-05)...
+L-BFGS Iter 0: Cost = 2772.59, Grad Norm = 3353.03
+L-BFGS Iter 10: Cost = 894.945, Grad Norm = 870.897, Step Size = 1
+L-BFGS Iter 20: Cost = 718.731, Grad Norm = 91.7555, Step Size = 1
+L-BFGS Iter 30: Cost = 669.403, Grad Norm = 300.551, Step Size = 0.015625
+L-BFGS Iter 40: Cost = 659.654, Grad Norm = 170.081, Step Size = 0.015625
+L-BFGS Iter 50: Cost = 653.264, Grad Norm = 24.1136, Step Size = 0.000976562
+L-BFGS Iter 60: Cost = 650.239, Grad Norm = 18.9372, Step Size = 0.015625
+L-BFGS Iter 70: Cost = 648.882, Grad Norm = 44.3285, Step Size = 0.0078125
+L-BFGS Iter 80: Cost = 647.916, Grad Norm = 42.8195, Step Size = 0.03125
+L-BFGS Iter 90: Cost = 646.985, Grad Norm = 3.89577, Step Size = 6.10352e-05
+L-BFGS Iter 100: Cost = 646.787, Grad Norm = 9.7457, Step Size = 0.00195312
+L-BFGS Iter 110: Cost = 646.012, Grad Norm = 11.6238, Step Size = 0.0078125
+L-BFGS Iter 120: Cost = 645.952, Grad Norm = 3.64606, Step Size = 0.000976562
+L-BFGS Iter 130: Cost = 645.774, Grad Norm = 5.74717, Step Size = 0.00195312
+L-BFGS Iter 140: Cost = 645.723, Grad Norm = 6.02744, Step Size = 0.00390625
+L-BFGS Iter 150: Cost = 645.608, Grad Norm = 1.77286, Step Size = 0.000976562
+L-BFGS Iter 160: Cost = 645.602, Grad Norm = 2.04439, Step Size = 0.00390625
+L-BFGS Iter 170: Cost = 645.521, Grad Norm = 10.6774, Step Size = 0.5
+L-BFGS Iter 180: Cost = 645.453, Grad Norm = 10.1391, Step Size = 0.000976562
+L-BFGS Iter 190: Cost = 645.393, Grad Norm = 2.42511, Step Size = 6.10352e-05
+L-BFGS Iter 200: Cost = 645.38, Grad Norm = 5.24915, Step Size = 0.000244141
+L-BFGS Iter 210: Cost = 645.36, Grad Norm = 2.15798, Step Size = 0.015625
+L-BFGS Iter 220: Cost = 645.357, Grad Norm = 2.64554, Step Size = 0.0078125
+L-BFGS Iter 230: Cost = 645.314, Grad Norm = 1.20951, Step Size = 0.015625
+L-BFGS Iter 240: Cost = 645.31, Grad Norm = 1.47098, Step Size = 0.000976562
+L-BFGS Iter 250: Cost = 645.3, Grad Norm = 0.741341, Step Size = 0.0078125
+L-BFGS Iter 260: Cost = 645.298, Grad Norm = 1.53365, Step Size = 0.000976562
+L-BFGS Iter 270: Cost = 645.293, Grad Norm = 1.08286, Step Size = 0.0625
+L-BFGS Iter 280: Cost = 645.288, Grad Norm = 0.818584, Step Size = 0.00195312
+L-BFGS Iter 290: Cost = 645.285, Grad Norm = 1.23771, Step Size = 0.125
+L-BFGS Iter 300: Cost = 645.284, Grad Norm = 0.405247, Step Size = 0.00012207
+L-BFGS Iter 310: Cost = 645.282, Grad Norm = 0.790962, Step Size = 0.000976562
+L-BFGS Iter 320: Cost = 645.281, Grad Norm = 0.235814, Step Size = 0.00390625
+L-BFGS Iter 330: Cost = 645.281, Grad Norm = 0.720145, Step Size = 0.00390625
+L-BFGS Iter 340: Cost = 645.28, Grad Norm = 0.202141, Step Size = 0.00390625
+L-BFGS Iter 350: Cost = 645.28, Grad Norm = 0.239161, Step Size = 0.125
+L-BFGS Iter 360: Cost = 645.278, Grad Norm = 0.363611, Step Size = 0.00195312
+L-BFGS Iter 370: Cost = 645.278, Grad Norm = 0.588248, Step Size = 0.000488281
+L-BFGS Iter 380: Cost = 645.277, Grad Norm = 0.361272, Step Size = 0.125
+L-BFGS Iter 390: Cost = 645.277, Grad Norm = 0.490224, Step Size = 0.000976562
+L-BFGS Iter 400: Cost = 645.276, Grad Norm = 0.490522, Step Size = 0.00390625
+L-BFGS Iter 410: Cost = 645.276, Grad Norm = 0.63326, Step Size = 0.0078125
+L-BFGS Iter 420: Cost = 645.275, Grad Norm = 0.492015, Step Size = 0.00390625
+L-BFGS Iter 430: Cost = 645.275, Grad Norm = 0.206552, Step Size = 0.015625
+L-BFGS Iter 440: Cost = 645.275, Grad Norm = 0.501955, Step Size = 0.0078125
+L-BFGS Iter 450: Cost = 645.275, Grad Norm = 0.249976, Step Size = 0.00195312
+L-BFGS Iter 460: Cost = 645.275, Grad Norm = 0.0800217, Step Size = 0.00195312
+L-BFGS Iter 470: Cost = 645.275, Grad Norm = 0.131237, Step Size = 0.000488281
+L-BFGS Iter 480: Cost = 645.275, Grad Norm = 0.212105, Step Size = 0.0078125
+L-BFGS Iter 490: Cost = 645.275, Grad Norm = 0.0839315, Step Size = 0.0078125
+L-BFGS Iter 500: Cost = 645.275, Grad Norm = 0.0683762, Step Size = 0.125
+Manual L-BFGS finished after 500 iterations.
+L-BFGS (m=20) Final Accuracy: 95.70%
+--- L-BFGS with m=40 ---
+Starting Manual L-BFGS (Memory m=40, Max Iter: 500, Tol: 1e-05)...
+L-BFGS Iter 0: Cost = 2772.59, Grad Norm = 3353.03
+L-BFGS Iter 10: Cost = 894.945, Grad Norm = 870.897, Step Size = 1
+L-BFGS Iter 20: Cost = 718.731, Grad Norm = 91.7555, Step Size = 1
+L-BFGS Iter 30: Cost = 649.651, Grad Norm = 19.766, Step Size = 0.5
+L-BFGS Iter 40: Cost = 645.438, Grad Norm = 11.787, Step Size = 1
+L-BFGS Iter 50: Cost = 645.288, Grad Norm = 7.98346, Step Size = 0.0078125
+L-BFGS Iter 60: Cost = 645.28, Grad Norm = 6.95882, Step Size = 0.0078125
+L-BFGS Iter 70: Cost = 645.277, Grad Norm = 0.30883, Step Size = 0.0625
+L-BFGS Iter 80: Cost = 645.276, Grad Norm = 3.24794, Step Size = 0.0625
+L-BFGS Iter 90: Cost = 645.276, Grad Norm = 1.57299, Step Size = 0.00012207
+L-BFGS Iter 100: Cost = 645.275, Grad Norm = 0.0706525, Step Size = 0.00390625
+L-BFGS Iter 110: Cost = 645.275, Grad Norm = 0.424818, Step Size = 0.00390625
+L-BFGS Iter 120: Cost = 645.275, Grad Norm = 0.164762, Step Size = 0.000488281
+L-BFGS Iter 130: Cost = 645.275, Grad Norm = 0.308061, Step Size = 0.00012207
+L-BFGS Iter 140: Cost = 645.275, Grad Norm = 0.146442, Step Size = 0.00195312
+L-BFGS Iter 150: Cost = 645.275, Grad Norm = 0.14056, Step Size = 0.125
+L-BFGS Iter 160: Cost = 645.275, Grad Norm = 0.0744701, Step Size = 0.000976562
+L-BFGS Iter 170: Cost = 645.275, Grad Norm = 0.0381505, Step Size = 0.000488281
+L-BFGS Iter 180: Cost = 645.275, Grad Norm = 0.0474117, Step Size = 0.000244141
+L-BFGS Iter 190: Cost = 645.275, Grad Norm = 0.063416, Step Size = 0.00390625
+L-BFGS Iter 200: Cost = 645.275, Grad Norm = 0.0523487, Step Size = 0.015625
+L-BFGS Iter 210: Cost = 645.275, Grad Norm = 0.0668955, Step Size = 0.000244141
+L-BFGS Iter 220: Cost = 645.275, Grad Norm = 0.00704187, Step Size = 0.00012207
+L-BFGS Iter 230: Cost = 645.275, Grad Norm = 0.0121939, Step Size = 0.00195312
+L-BFGS Iter 240: Cost = 645.275, Grad Norm = 0.0205926, Step Size = 0.00195312
+L-BFGS Iter 250: Cost = 645.275, Grad Norm = 0.0150404, Step Size = 0.03125
+L-BFGS Iter 260: Cost = 645.275, Grad Norm = 0.0121571, Step Size = 0.125
+L-BFGS Iter 270: Cost = 645.275, Grad Norm = 0.0182389, Step Size = 0.000976562
+L-BFGS Iter 280: Cost = 645.275, Grad Norm = 0.00665425, Step Size = 0.0078125
+L-BFGS Iter 290: Cost = 645.275, Grad Norm = 0.00536622, Step Size = 0.015625
+L-BFGS Iter 300: Cost = 645.275, Grad Norm = 0.00477804, Step Size = 0.25
+L-BFGS Iter 310: Cost = 645.275, Grad Norm = 0.00226775, Step Size = 0.000976562
+L-BFGS Iter 320: Cost = 645.275, Grad Norm = 0.00201093, Step Size = 0.00195312
+L-BFGS Iter 330: Cost = 645.275, Grad Norm = 0.00226247, Step Size = 0.000488281
+L-BFGS Iter 340: Cost = 645.275, Grad Norm = 0.00163092, Step Size = 0.000244141
+L-BFGS Iter 350: Cost = 645.275, Grad Norm = 0.00192738, Step Size = 0.03125
+Warning: L-BFGS Curvature condition <= 0 at iter 358 (rho_denom=8.63036e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 359 (rho_denom=9.0737e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 360 (rho_denom=9.30012e-11). Discarding s,y pair.
+L-BFGS Iter 360: Cost = 645.275, Grad Norm = 0.000886105, Step Size = 0.000244141
+Warning: L-BFGS Curvature condition <= 0 at iter 361 (rho_denom=9.77753e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 363 (rho_denom=9.72447e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 364 (rho_denom=6.48066e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 365 (rho_denom=5.3414e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 366 (rho_denom=3.56116e-11). Discarding s,y pair.
+L-BFGS Iter 370: Cost = 645.275, Grad Norm = 0.00073556, Step Size = 0.0078125
+Warning: L-BFGS Curvature condition <= 0 at iter 372 (rho_denom=8.94622e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 374 (rho_denom=9.68816e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 379 (rho_denom=8.32516e-11). Discarding s,y pair.
+L-BFGS Iter 380: Cost = 645.275, Grad Norm = 0.00100552, Step Size = 0.000976562
+Warning: L-BFGS Curvature condition <= 0 at iter 381 (rho_denom=1.38221e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 382 (rho_denom=5.2779e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 383 (rho_denom=7.11373e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 384 (rho_denom=2.64936e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 385 (rho_denom=2.52753e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 386 (rho_denom=3.22799e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 387 (rho_denom=1.20223e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 388 (rho_denom=4.59125e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 389 (rho_denom=6.18743e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 390 (rho_denom=9.21755e-12). Discarding s,y pair.
+L-BFGS Iter 390: Cost = 645.275, Grad Norm = 0.00109824, Step Size = 3.05176e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 391 (rho_denom=1.77057e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 392 (rho_denom=8.50266e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 393 (rho_denom=3.16717e-13). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 398 (rho_denom=6.72984e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 399 (rho_denom=9.75458e-11). Discarding s,y pair.
+L-BFGS Iter 400: Cost = 645.275, Grad Norm = 0.00160733, Step Size = 6.10352e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 401 (rho_denom=8.73572e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 403 (rho_denom=5.75377e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 404 (rho_denom=5.50531e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 405 (rho_denom=5.26758e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 406 (rho_denom=5.04012e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 407 (rho_denom=4.82248e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 408 (rho_denom=4.61423e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 409 (rho_denom=4.41499e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 410 (rho_denom=4.22435e-11). Discarding s,y pair.
+L-BFGS Iter 410: Cost = 645.275, Grad Norm = 0.00184654, Step Size = 6.10352e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 411 (rho_denom=4.04194e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 412 (rho_denom=3.86741e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 413 (rho_denom=3.70041e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 414 (rho_denom=3.54063e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 415 (rho_denom=3.38775e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 416 (rho_denom=3.24147e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 417 (rho_denom=3.10151e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 418 (rho_denom=2.96759e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 419 (rho_denom=2.83946e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 420 (rho_denom=2.71686e-11). Discarding s,y pair.
+L-BFGS Iter 420: Cost = 645.275, Grad Norm = 0.00195631, Step Size = 6.10352e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 421 (rho_denom=2.59956e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 422 (rho_denom=2.48732e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 423 (rho_denom=2.37993e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 424 (rho_denom=2.27717e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 425 (rho_denom=2.17886e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 426 (rho_denom=2.08479e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 427 (rho_denom=1.99478e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 428 (rho_denom=1.90866e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 429 (rho_denom=1.82626e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 430 (rho_denom=1.74742e-11). Discarding s,y pair.
+L-BFGS Iter 430: Cost = 645.275, Grad Norm = 0.00204401, Step Size = 6.10352e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 431 (rho_denom=1.67198e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 432 (rho_denom=1.5998e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 433 (rho_denom=6.12296e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 435 (rho_denom=2.96269e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 436 (rho_denom=6.15857e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 437 (rho_denom=3.2007e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 438 (rho_denom=2.50266e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 439 (rho_denom=2.3566e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 440 (rho_denom=1.8434e-11). Discarding s,y pair.
+L-BFGS Iter 440: Cost = 645.275, Grad Norm = 0.00162669, Step Size = 0.00012207
+Warning: L-BFGS Curvature condition <= 0 at iter 441 (rho_denom=1.73512e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 442 (rho_denom=5.43201e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 443 (rho_denom=6.50992e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 444 (rho_denom=1.27177e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 445 (rho_denom=2.6432e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 446 (rho_denom=1.37359e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 447 (rho_denom=4.30234e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 448 (rho_denom=5.15342e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 449 (rho_denom=4.02759e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 450 (rho_denom=3.7943e-11). Discarding s,y pair.
+L-BFGS Iter 450: Cost = 645.275, Grad Norm = 0.00117953, Step Size = 3.05176e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 451 (rho_denom=2.96609e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 452 (rho_denom=2.79364e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 453 (rho_denom=2.18455e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 454 (rho_denom=2.05689e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 455 (rho_denom=6.43652e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 456 (rho_denom=7.71726e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 457 (rho_denom=1.50746e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 458 (rho_denom=3.13324e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 459 (rho_denom=6.51322e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 460 (rho_denom=3.38504e-11). Discarding s,y pair.
+L-BFGS Iter 460: Cost = 645.275, Grad Norm = 0.00116451, Step Size = 3.05176e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 461 (rho_denom=2.64635e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 462 (rho_denom=2.49231e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 463 (rho_denom=1.94911e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 464 (rho_denom=1.83503e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 465 (rho_denom=1.43575e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 466 (rho_denom=5.40442e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 467 (rho_denom=2.80876e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 468 (rho_denom=2.1962e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 469 (rho_denom=2.06802e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 470 (rho_denom=1.61767e-11). Discarding s,y pair.
+L-BFGS Iter 470: Cost = 645.275, Grad Norm = 0.0015752, Step Size = 0.00012207
+Warning: L-BFGS Curvature condition <= 0 at iter 471 (rho_denom=1.52265e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 472 (rho_denom=4.76685e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 473 (rho_denom=5.71276e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 474 (rho_denom=1.11604e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 475 (rho_denom=2.31953e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 476 (rho_denom=1.20539e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 477 (rho_denom=3.77552e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 478 (rho_denom=4.52237e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 479 (rho_denom=3.5344e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 480 (rho_denom=3.32968e-11). Discarding s,y pair.
+L-BFGS Iter 480: Cost = 645.275, Grad Norm = 0.0011562, Step Size = 3.05176e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 481 (rho_denom=2.60289e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 482 (rho_denom=2.45155e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 483 (rho_denom=1.91705e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 484 (rho_denom=1.80502e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 485 (rho_denom=5.64838e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 486 (rho_denom=6.77227e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 487 (rho_denom=1.32287e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 488 (rho_denom=2.74957e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 489 (rho_denom=5.71567e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 490 (rho_denom=2.97054e-11). Discarding s,y pair.
+L-BFGS Iter 490: Cost = 645.275, Grad Norm = 0.00114209, Step Size = 3.05176e-05
+Warning: L-BFGS Curvature condition <= 0 at iter 491 (rho_denom=2.32231e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 492 (rho_denom=2.18713e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 493 (rho_denom=1.71045e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 494 (rho_denom=6.44134e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 495 (rho_denom=3.34771e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 496 (rho_denom=2.61684e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 497 (rho_denom=2.46483e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 498 (rho_denom=1.92729e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 499 (rho_denom=1.8148e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 500 (rho_denom=1.4196e-11). Discarding s,y pair.
+L-BFGS Iter 500: Cost = 645.275, Grad Norm = 0.00152678, Step Size = 0.00012207
+Manual L-BFGS finished after 500 iterations.
+L-BFGS (m=40) Final Accuracy: 95.70%
+--- L-BFGS with m=80 ---
+Starting Manual L-BFGS (Memory m=80, Max Iter: 500, Tol: 1e-05)...
+L-BFGS Iter 0: Cost = 2772.59, Grad Norm = 3353.03
+L-BFGS Iter 10: Cost = 894.945, Grad Norm = 870.897, Step Size = 1
+L-BFGS Iter 20: Cost = 718.731, Grad Norm = 91.7555, Step Size = 1
+L-BFGS Iter 30: Cost = 649.651, Grad Norm = 19.766, Step Size = 0.5
+L-BFGS Iter 40: Cost = 645.438, Grad Norm = 11.787, Step Size = 1
+L-BFGS Iter 50: Cost = 645.276, Grad Norm = 0.900453, Step Size = 1
+L-BFGS Iter 60: Cost = 645.275, Grad Norm = 0.0341657, Step Size = 0.125
+L-BFGS Iter 70: Cost = 645.275, Grad Norm = 0.00115973, Step Size = 1
+Warning: L-BFGS Curvature condition <= 0 at iter 74 (rho_denom=7.31494e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 75 (rho_denom=1.47523e-11). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 76 (rho_denom=2.18452e-16). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 77 (rho_denom=3.50137e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 78 (rho_denom=-8.27877e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 79 (rho_denom=5.18839e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 80 (rho_denom=1.26655e-15). Discarding s,y pair.
+L-BFGS Iter 80: Cost = 645.275, Grad Norm = 6.78475e-05, Step Size = 0.00390625
+Warning: L-BFGS Curvature condition <= 0 at iter 81 (rho_denom=8.49204e-28). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 82 (rho_denom=-8.05077e-31). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 83 (rho_denom=1.23335e-12). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 84 (rho_denom=1.49718e-17). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 85 (rho_denom=2.47387e-28). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 86 (rho_denom=1.03458e-27). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 87 (rho_denom=1.092e-27). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 88 (rho_denom=2.65358e-28). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 89 (rho_denom=4.82708e-31). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 90 (rho_denom=-5.16005e-32). Discarding s,y pair.
+L-BFGS Iter 90: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 2.91038e-11
+Warning: L-BFGS Curvature condition <= 0 at iter 91 (rho_denom=-6.10365e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 92 (rho_denom=2.98669e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 93 (rho_denom=2.85142e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 94 (rho_denom=2.38956e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 95 (rho_denom=1.03244e-31). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 96 (rho_denom=-2.96438e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 97 (rho_denom=-2.16332e-31). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 98 (rho_denom=3.08415e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 99 (rho_denom=-3.07995e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 100 (rho_denom=8.09154e-33). Discarding s,y pair.
+L-BFGS Iter 100: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.45519e-11
+Warning: L-BFGS Curvature condition <= 0 at iter 101 (rho_denom=-6.1606e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 102 (rho_denom=-7.41244e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 103 (rho_denom=-1.53808e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 104 (rho_denom=1.53379e-36). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 105 (rho_denom=7.70635e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 106 (rho_denom=-5.77542e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 107 (rho_denom=2.39383e-36). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 108 (rho_denom=-1.13603e-32). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 109 (rho_denom=1.53379e-36). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 110 (rho_denom=9.2471e-33). Discarding s,y pair.
+L-BFGS Iter 110: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.45519e-11
+Warning: L-BFGS Curvature condition <= 0 at iter 111 (rho_denom=2.37427e-36). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 112 (rho_denom=6.16537e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 113 (rho_denom=4.07612e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 114 (rho_denom=1.81329e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 115 (rho_denom=3.65138e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 116 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 117 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 118 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 119 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 120 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 120: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 121 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 122 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 123 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 124 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 125 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 126 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 127 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 128 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 129 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 130 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 130: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 131 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 132 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 133 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 134 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 135 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 136 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 137 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 138 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 139 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 140 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 140: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 141 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 142 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 143 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 144 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 145 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 146 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 147 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 148 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 149 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 150 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 150: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 151 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 152 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 153 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 154 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 155 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 156 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 157 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 158 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 159 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 160 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 160: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 161 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 162 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 163 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 164 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 165 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 166 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 167 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 168 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 169 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 170 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 170: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 171 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 172 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 173 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 174 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 175 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 176 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 177 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 178 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 179 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 180 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 180: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 181 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 182 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 183 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 184 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 185 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 186 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 187 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 188 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 189 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 190 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 190: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 191 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 192 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 193 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 194 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 195 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 196 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 197 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 198 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 199 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 200 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 200: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 201 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 202 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 203 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 204 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 205 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 206 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 207 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 208 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 209 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 210 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 210: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 211 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 212 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 213 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 214 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 215 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 216 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 217 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 218 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 219 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 220 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 220: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 221 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 222 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 223 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 224 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 225 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 226 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 227 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 228 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 229 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 230 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 230: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 231 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 232 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 233 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 234 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 235 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 236 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 237 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 238 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 239 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 240 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 240: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 241 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 242 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 243 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 244 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 245 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 246 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 247 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 248 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 249 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 250 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 250: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 251 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 252 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 253 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 254 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 255 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 256 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 257 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 258 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 259 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 260 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 260: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 261 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 262 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 263 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 264 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 265 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 266 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 267 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 268 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 269 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 270 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 270: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 271 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 272 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 273 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 274 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 275 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 276 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 277 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 278 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 279 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 280 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 280: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 281 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 282 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 283 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 284 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 285 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 286 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 287 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 288 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 289 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 290 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 290: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 291 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 292 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 293 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 294 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 295 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 296 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 297 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 298 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 299 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 300 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 300: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 301 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 302 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 303 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 304 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 305 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 306 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 307 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 308 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 309 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 310 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 310: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 311 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 312 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 313 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 314 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 315 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 316 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 317 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 318 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 319 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 320 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 320: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 321 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 322 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 323 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 324 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 325 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 326 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 327 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 328 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 329 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 330 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 330: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 331 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 332 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 333 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 334 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 335 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 336 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 337 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 338 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 339 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 340 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 340: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 341 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 342 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 343 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 344 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 345 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 346 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 347 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 348 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 349 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 350 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 350: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 351 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 352 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 353 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 354 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 355 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 356 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 357 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 358 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 359 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 360 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 360: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 361 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 362 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 363 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 364 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 365 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 366 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 367 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 368 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 369 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 370 (rho_denom=4.04076e-39). Discarding s,y pair.
+L-BFGS Iter 370: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 1.81899e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 371 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 372 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 373 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 374 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 375 (rho_denom=4.04076e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 376 (rho_denom=5.51013e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 377 (rho_denom=4.77545e-39). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 378 (rho_denom=5.00778e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 379 (rho_denom=4.16428e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 380 (rho_denom=4.07612e-37). Discarding s,y pair.
+L-BFGS Iter 380: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 7.27596e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 381 (rho_denom=1.81329e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 382 (rho_denom=3.63669e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 383 (rho_denom=3.57653e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 384 (rho_denom=4.16428e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 385 (rho_denom=4.07612e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 386 (rho_denom=1.81329e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 387 (rho_denom=3.63669e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 388 (rho_denom=3.57653e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 389 (rho_denom=4.16428e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 390 (rho_denom=4.07612e-37). Discarding s,y pair.
+L-BFGS Iter 390: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 7.27596e-12
+Warning: L-BFGS Curvature condition <= 0 at iter 391 (rho_denom=-1.82945e-33). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 392 (rho_denom=3.63669e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 393 (rho_denom=3.57653e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 394 (rho_denom=4.16428e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 395 (rho_denom=4.07612e-37). Discarding s,y pair.
+Warning: L-BFGS Curvature condition <= 0 at iter 396 (rho_denom=1.81329e-37). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 397 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 398 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 399 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 400 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 400: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 401 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 402 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 403 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 404 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 405 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 406 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 407 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 408 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 409 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 410 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 410: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 411 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 412 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 413 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 414 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 415 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 416 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 417 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 418 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 419 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 420 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 420: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 421 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 422 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 423 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 424 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 425 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 426 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 427 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 428 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 429 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 430 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 430: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 431 (rho_denom=1.92594e-34). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 432 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 433 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 434 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 435 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 436 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 437 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 438 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 439 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 440 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 440: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 441 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 442 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 443 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 444 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 445 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 446 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 447 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 448 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 449 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 450 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 450: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 451 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 452 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 453 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 454 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 455 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 456 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 457 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 458 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 459 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 460 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 460: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 461 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 462 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 463 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 464 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 465 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 466 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 467 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 468 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 469 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 470 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 470: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 471 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 472 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 473 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 474 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 475 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 476 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 477 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 478 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 479 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 480 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 480: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 481 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 482 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 483 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 484 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 485 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 486 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 487 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 488 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 489 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 490 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 490: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 491 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 492 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 493 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 494 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 495 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 496 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 497 (rho_denom=3.67342e-40). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 498 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 499 (rho_denom=1.01019e-39). Discarding s,y pair.
+Warning: L-BFGS Line search alpha reached minimum (9.09495e-13).
+Warning: L-BFGS Curvature condition <= 0 at iter 500 (rho_denom=1.01019e-39). Discarding s,y pair.
+L-BFGS Iter 500: Cost = 645.275, Grad Norm = 3.27207e-05, Step Size = 9.09495e-13
+Manual L-BFGS finished after 500 iterations.
+L-BFGS (m=80) Final Accuracy: 95.70%
+
+===== Generating Iteration Plots =====
+Saved plot: gd_accuracy_vs_step_size.png
+Saved plot: gd_cost_vs_iteration.png
+Saved plot: gd_grad_norm_vs_iteration.png
+Saved plot: sgd_accuracy_vs_step_size.png
+Saved plot: sgd_cost_vs_iteration.png
+Saved plot: sgd_grad_norm_vs_iterations.png
+Saved plot: bfgs_cost_vs_iteration.png
+Saved plot: bfgs_grad_norm_vs_iteration.png
+Saved plot: lbfgs_accuracy_vs_memory_size.png
+Saved plot: lbfgs_cost_vs_iteration.png
+Saved plot: lbfgs_grad_norm_vs_iteration.png
+
+===== Generating Final Comparison Plots =====
+Saved plot: convergence_comparison_Best_Runs).png
+Warning: Columns of X are linearly dependent to within machine precision.
+Using only the first 573 components to compute TSQUARED. 
+> In pca>localTSquared (line 515)
+In pca (line 361)
+In plot_pca_predictions (line 6)
+In main (line 299) 
+Saved plot: pca_predictions_comparison_Best_Runs).png
+
+===== Final Accuracies (Best Runs) =====
+GD (eta=1e-05): 89.30%
+SGD (eta=0.0001, bs=1): 90.20%
+BFGS (BFGS): 95.70%
+L-BFGS (m=5): 95.70%
+======================================
