@@ -73,7 +73,7 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN mkdir -p /root/.config/code-server
 
 # --- Add default config with no authentication ---
-RUN echo 'bind-addr: 0.0.0.0:8080\nauth: none\ncert: false' > /root/.config/code-server/config.yaml
+RUN echo -e 'bind-addr: 0.0.0.0:8080\nauth: none\ncert: false' > /root/.config/code-server/config.yaml
 
 # --- Set project-specific environment variables ---
 ENV NUPLAN_MAP_VERSION="nuplan-maps-v1.0" \
