@@ -2,6 +2,7 @@ services:
   navsim:
     # Optional: Build context if Dockerfile is in the same directory
     # build: .
+    shm_size: 16g
     image: gcr.io/nyumlstudy/navsim-notebook:latest # Use the image you built with the Dockerfile above
     container_name: navsim
     ports:

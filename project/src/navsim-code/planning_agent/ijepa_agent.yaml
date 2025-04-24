@@ -1,0 +1,14 @@
+# filename: navsim/planning/script/config/agent/ijepa_agent.yaml
+
+_target_: code.planning_agent.PlanningAgent.IJEPAPlanningAgent # Module name matches filename
+
+# Arguments for IJEPAPlanningAgent.__init__
+mlp_weights_path: "code/checkpoints/placeholder_weights.pth" # OVERRIDE ME
+ijepa_model_id: "facebook/ijepa_vith14_1k"
+use_cls_token_if_available: True
+
+# Add trajectory_sampling config needed by AbstractAgent base class
+trajectory_sampling:
+  _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+  time_horizon: 4 # Must match NUM_FUTURE_FRAMES * interval_length
+  interval_length: 0.5 # Must match training/output
