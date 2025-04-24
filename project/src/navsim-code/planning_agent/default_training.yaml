@@ -1,0 +1,56 @@
+hydra:
+  run:
+    dir: ${output_dir}
+  output_subdir: ${output_dir}/code/hydra
+  searchpath:
+    - pkg://navsim.planning.script.config.common
+  job:
+    chdir: False
+
+defaults:
+  - default_common
+  - default_evaluation
+  - default_train_val_test_log_split
+  # --- CHANGE THIS LINE ---
+  - agent: ijepa_planning_agent # This now points to your new config file
+  # ------------------------
+  - _self_
+
+# ... rest of the config remains largely the same ...
+
+split: trainval
+cache_path: ${oc.env:NAVSIM_EXP_ROOT}/training_cache
+use_cache_without_dataset: false
+force_cache_computation: true # Keep true if you want to regenerate cache with your new builders
+seed: 0
+
+dataloader:
+  params:
+    batch_size: 64
+    num_workers: 4
+    pin_memory: true
+    prefetch_factor: 2
+    # collate_fn: navsim.common.dataloader.collate_fn_skip_none # Add this if your builders could return None (though the ones provided return zero tensors)
+    # persistent_workers: true # Often good with num_workers > 0
+
+trainer:
+  params:
+    max_epochs: 100
+    check_val_every_n_epoch: 1
+    val_check_interval: 1.0
+
+    limit_train_batches: 1.0
+    limit_val_batches: 1.0
+
+    accelerator: gpu
+    strategy: ddp
+    precision: 16-mixed
+    num_nodes: 1
+
+    num_sanity_val_steps: 0
+    fast_dev_run: false
+
+    accumulate_grad_batches: 1
+    gradient_clip_val: 0.0
+    gradient_clip_algorithm: norm
+    default_root_dir: ${output_dir}
