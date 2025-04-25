@@ -1,0 +1,295 @@
+2025-04-23 22:07:01,774 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:07:01,993 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:07:01,993 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:07:03,381 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:07:03,381 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:07:03,381 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:07:14,687 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:07:14,687 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:07:14,687 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:12:42,360 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:12:42,586 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:12:42,587 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:12:44,103 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:12:44,103 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:12:44,104 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:12:56,070 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:12:56,071 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:12:56,071 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:14:05,453 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:14:05,556 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:14:05,556 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:14:06,944 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:14:06,945 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:14:06,945 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:14:19,070 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:14:19,070 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:14:19,070 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:15:06,070 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:15:06,173 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:15:06,173 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:15:07,513 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:15:07,513 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:15:07,513 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:15:19,347 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:15:19,347 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:15:19,347 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:19:27,980 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:19:28,088 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:19:28,088 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:19:29,465 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:19:29,466 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:19:29,466 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:19:41,313 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:19:41,313 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:19:41,313 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:20:33,273 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:20:33,376 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:20:33,376 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:20:34,729 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:20:34,730 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:20:34,730 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:20:46,633 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:20:46,633 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:20:46,633 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:23:02,965 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:23:03,062 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:23:03,062 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:23:04,374 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:23:04,374 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:23:04,374 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:23:16,219 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:23:16,219 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:23:16,219 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:24:59,420 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:24:59,523 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:24:59,524 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:25:00,914 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:25:00,914 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:25:00,914 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:25:12,854 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:25:12,854 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:25:12,854 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:25:50,028 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:25:50,129 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:25:50,129 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:25:51,496 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:25:51,496 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:25:51,496 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:26:03,515 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:26:03,515 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:26:03,515 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:28:39,791 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:28:39,893 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:28:39,893 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:28:42,271 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:28:42,272 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:28:42,272 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:28:54,106 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:28:54,106 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:28:54,106 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:31:39,303 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:31:39,399 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:31:39,400 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:31:40,708 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:31:40,709 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:31:40,709 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:31:51,465 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:31:51,465 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:31:51,465 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:33:02,059 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:33:02,154 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:33:02,154 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:33:03,473 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:33:03,473 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:33:03,473 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:33:14,068 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:33:14,068 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:33:14,068 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:34:04,859 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:34:04,949 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:34:04,949 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:34:06,218 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:34:06,218 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:34:06,218 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:34:16,800 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:34:16,800 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:34:16,800 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:38:19,030 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:38:19,126 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:38:19,126 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:38:21,437 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:38:21,437 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:38:21,437 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:38:32,232 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:38:32,232 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:38:32,232 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:39:25,229 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:39:25,326 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:39:25,326 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:39:27,636 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:39:27,636 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:39:27,636 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:39:37,676 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:39:37,676 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:39:37,676 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:40:25,120 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:40:25,226 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:40:25,226 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:40:26,607 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:40:26,607 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:40:26,607 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:40:39,103 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:40:39,103 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:40:39,103 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:42:56,439 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:42:56,562 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:42:56,562 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:42:59,013 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:42:59,014 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:42:59,014 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:43:10,430 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:43:10,430 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:43:10,430 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:43:55,553 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:43:55,664 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:43:55,664 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:43:58,028 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:43:58,028 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:43:58,028 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:44:10,820 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:44:10,820 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:44:10,822 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 22:50:30,464 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 22:50:30,580 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 22:50:30,580 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 22:50:32,970 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 22:50:32,970 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 22:50:32,970 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 22:50:46,227 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:329}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 22:50:46,227 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:331}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 22:50:46,227 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score.py:332}  Starting pdm scoring of 885 scenarios...
+2025-04-23 23:12:37,437 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 23:12:37,677 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:50}  Not using GPU in ray
+2025-04-23 23:12:37,677 INFO {/navsim_workspace/navsim/navsim/planning/utils/multithreading/worker_ray_no_torch.py:76}  Starting ray local!
+2025-04-23 23:12:39,232 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributedNoTorch
+2025-04-23 23:12:39,233 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 0
+Number of threads across all nodes: 20
+2025-04-23 23:12:39,233 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 23:12:51,699 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:254}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 23:12:51,699 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:256}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 23:12:51,699 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:257}  Starting pdm scoring of 885 scenarios...
+2025-04-23 23:40:57,071 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 23:40:57,289 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_ray.py:78}  Starting ray local!
+2025-04-23 23:40:59,517 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributed
+2025-04-23 23:40:59,517 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 1
+Number of threads across all nodes: 20
+2025-04-23 23:40:59,517 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 23:41:19,646 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:254}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 23:41:19,646 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:256}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 23:41:19,646 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:257}  Starting pdm scoring of 885 scenarios...
+2025-04-23 23:42:32,302 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 23:42:33,373 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_ray.py:78}  Starting ray local!
+2025-04-23 23:42:35,668 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributed
+2025-04-23 23:42:35,669 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 1
+Number of threads across all nodes: 20
+2025-04-23 23:42:35,669 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 23:42:43,211 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:254}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 23:42:43,211 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:256}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 23:42:43,211 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:257}  Starting pdm scoring of 885 scenarios...
+2025-04-23 23:54:55,107 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 23:54:55,210 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_ray.py:78}  Starting ray local!
+2025-04-23 23:54:57,419 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributed
+2025-04-23 23:54:57,419 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 1
+Number of threads across all nodes: 20
+2025-04-23 23:54:57,419 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 23:55:05,025 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:254}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 23:55:05,027 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:256}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 23:55:05,027 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:257}  Starting pdm scoring of 885 scenarios...
+2025-04-23 23:55:39,897 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-23 23:55:40,003 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_ray.py:78}  Starting ray local!
+2025-04-23 23:55:41,225 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributed
+2025-04-23 23:55:41,225 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 1
+Number of threads across all nodes: 20
+2025-04-23 23:55:41,225 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-23 23:55:49,582 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:254}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-23 23:55:49,582 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:256}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-23 23:55:49,583 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:257}  Starting pdm scoring of 885 scenarios...
+2025-04-24 02:23:41,047 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2025-04-24 02:23:41,282 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_ray.py:78}  Starting ray local!
+2025-04-24 02:23:42,578 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributed
+2025-04-24 02:23:42,578 INFO {/opt/conda/envs/navsim/lib/python3.9/site-packages/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 20
+Number of GPUs per node: 1
+Number of threads across all nodes: 20
+2025-04-24 02:23:42,578 INFO {/navsim_workspace/navsim/navsim/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2025-04-24 02:23:52,597 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:254}  Missing metric cache for 11261 tokens. Skipping these tokens.
+2025-04-24 02:23:52,597 WARNING {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:256}  Unused metric cache for 4159 tokens. Skipping these tokens.
+2025-04-24 02:23:52,597 INFO {/navsim_workspace/navsim/navsim/planning/script/run_pdm_score_one_stage.py:257}  Starting pdm scoring of 885 scenarios...

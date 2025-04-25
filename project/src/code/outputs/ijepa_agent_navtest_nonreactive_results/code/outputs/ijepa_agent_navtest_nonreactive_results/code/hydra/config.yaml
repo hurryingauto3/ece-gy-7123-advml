@@ -1,0 +1,99 @@
+train_test_split:
+  scene_filter:
+    _target_: navsim.common.dataclasses.SceneFilter
+    _convert_: all
+    num_history_frames: 4
+    num_future_frames: 10
+    frame_interval: null
+    has_route: true
+    max_scenes: null
+    log_names: null
+    tokens: null
+  data_split: test
+worker:
+  _target_: nuplan.planning.utils.multithreading.worker_ray.RayDistributed
+  _convert_: all
+  master_node_ip: null
+  threads_per_node: null
+  debug_mode: false
+  log_to_driver: true
+  logs_subdir: logs
+  use_distributed: false
+distributed_timeout_seconds: 7200
+selected_simulation_metrics: null
+verbose: false
+logger_level: info
+logger_format_string: null
+traffic_agents: non_reactive
+max_number_of_workers: null
+gpu: true
+proposal_sampling:
+  _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+  _convert_: all
+  num_poses: 40
+  interval_length: 0.1
+traffic_agents_policy:
+  non_reactive:
+    _target_: navsim.traffic_agents_policies.log_replay_traffic_agents.LogReplayTrafficAgents
+    _convert_: all
+  reactive:
+    _target_: navsim.traffic_agents_policies.navsim_IDM_traffic_agents.NavsimIDMTrafficAgents
+    _convert_: all
+    idm_agents_observation:
+      _target_: navsim.planning.simulation.observation.navsim_idm_agents.NavsimIDMAgents
+      _convert_: all
+      target_velocity: 10
+      min_gap_to_lead_agent: 1.0
+      headway_time: 1.5
+      accel_max: 1.0
+      decel_max: 2.0
+      open_loop_detections_types: []
+      minimum_path_length: 20
+      planned_trajectory_samples: null
+      planned_trajectory_sample_interval: null
+      radius: 100
+      add_open_loop_parked_vehicles: true
+      idm_snap_threshold: 3.0
+navsim_log_path: ${oc.env:OPENSCENE_DATA_ROOT}/${train_test_split.data_split}_navsim_logs/${train_test_split.data_split}
+original_sensor_path: dataset/test_sensor_blobs/sensor_blobs/test
+synthetic_sensor_path: ${oc.env:OPENSCENE_DATA_ROOT}/warmup_two_stage/sensor_blobs
+synthetic_scenes_path: ${oc.env:OPENSCENE_DATA_ROOT}/warmup_two_stage/synthetic_scene_pickles
+metric_cache_path: ${oc.env:NAVSIM_EXP_ROOT}/metric_cache
+experiment_name: ijepa_agent_navtest_nonreactive
+date_format: '%Y.%m.%d.%H.%M.%S'
+experiment_uid: ${now:${date_format}}
+output_dir: code/outputs/ijepa_agent_navtest_nonreactive_results
+scorer:
+  _target_: navsim.planning.simulation.planner.pdm_planner.scoring.pdm_scorer.PDMScorer
+  _convert_: all
+  proposal_sampling: ${proposal_sampling}
+  config:
+    _target_: navsim.planning.simulation.planner.pdm_planner.scoring.pdm_scorer.PDMScorerConfig
+    _convert_: all
+    progress_weight: 5.0
+    ttc_weight: 5.0
+    lane_keeping_weight: 2.0
+    history_comfort_weight: 2.0
+    two_frame_extended_comfort_weight: 2.0
+    driving_direction_horizon: 1.0
+    driving_direction_compliance_threshold: 2.0
+    driving_direction_violation_threshold: 6.0
+    stopped_speed_threshold: 0.005
+    future_collision_horizon_window: 1.0
+    progress_distance_threshold: 5.0
+    lane_keeping_deviation_limit: 0.5
+    lane_keeping_horizon_window: 2.0
+    human_penalty_filter: true
+agent:
+  _target_: code.planning_agent.PlanningAgent.IJEPAPlanningAgent
+  mlp_weights_path: /navsim_workspace/code/checkpoints/planning_head_20250423_184215_loss0_3079.pth
+  ijepa_model_id: facebook/ijepa_vith14_1k
+  use_cls_token_if_available: true
+  trajectory_sampling:
+    _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+    time_horizon: 4
+    interval_length: 0.5
+simulator:
+  _target_: navsim.planning.simulation.planner.pdm_planner.simulation.pdm_simulator.PDMSimulator
+  _convert_: all
+  proposal_sampling: ${proposal_sampling}

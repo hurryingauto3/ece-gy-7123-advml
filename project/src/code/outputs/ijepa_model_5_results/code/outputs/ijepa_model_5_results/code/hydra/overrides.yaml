@@ -1,0 +1,4 @@
+- +planner=ijepa_planner
+- +simulation=pdm_score_test
+- +planner.mlp_weights_path=code/checkpoints/planning_head_20250423_184215_loss0_3079.pth
+- output_dir=code/outputs/ijepa_model_5_results

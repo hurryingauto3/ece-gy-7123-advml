@@ -1,0 +1,8 @@
+- train_test_split=test
+- agent=ijepa_agent
+- agent.mlp_weights_path=/navsim_workspace/code/checkpoints/planning_head_20250423_184215_loss0_3079.pth
+- traffic_agents=non_reactive
+- experiment_name=ijepa_agent_navtest_nonreactive
+- output_dir=code/outputs/ijepa_agent_navtest_nonreactive_results
+- original_sensor_path=dataset/test_sensor_blobs/sensor_blobs/test
+- worker=ray_distributed

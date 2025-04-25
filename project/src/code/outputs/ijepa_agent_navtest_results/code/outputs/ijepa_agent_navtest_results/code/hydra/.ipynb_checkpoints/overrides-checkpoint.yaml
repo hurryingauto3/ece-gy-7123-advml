@@ -1,0 +1,6 @@
+- train_test_split=navtest
+- agent=ijepa_agent
+- agent.mlp_weights_path=/navsim_workspace/code/checkpoints/planning_head_20250423_184215_loss0_3079.pth
+- experiment_name=ijepa_agent_navtest
+- worker=ray_distributed
+- output_dir=code/outputs/ijepa_agent_navtest_results
