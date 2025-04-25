@@ -16,6 +16,7 @@ services:
       # .path_to_your_local_code:/navsim_workspace/code
       - ./dataset:/navsim_workspace/dataset
       - ./code:/navsim_workspace/code
+      - ./exp:/navsim_workspace/exp
       # Add any other necessary volumes
     # --- GPU Configuration ---
     deploy:
