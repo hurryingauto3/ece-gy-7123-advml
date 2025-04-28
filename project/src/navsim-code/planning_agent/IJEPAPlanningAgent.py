@@ -20,6 +20,7 @@ from torch.optim.lr_scheduler import LRScheduler
 
 # Correct import for TrajectorySampling
 from nuplan.planning.simulation.trajectory.trajectory_sampling import TrajectorySampling
+
 from navsim.agents.abstract_agent import AbstractAgent
 from navsim.common.dataclasses import (
     AgentInput,
@@ -30,6 +31,7 @@ from navsim.common.dataclasses import (
 )
 
 # Assuming convert_absolute_to_relative_se2_array is available, e.g., from a utils module
+from nuplan.common.actor_state.state_representation import StateSE2
 from navsim.planning.simulation.planner.pdm_planner.utils.pdm_geometry_utils import (
     convert_absolute_to_relative_se2_array,
 )
@@ -40,6 +42,34 @@ from navsim.planning.training.abstract_feature_target_builder import (
 )
 
 # --- Feature Builders ---
+
+def rel_to_abs(pred_rel, gt_abs):
+    origin = gt_abs[:, 0:1, :]             # (B,1,3)
+    return pred_rel + origin     
+
+import pytorch_lightning as pl
+
+class FirstBatchDebugger(pl.Callback):
+    def on_train_batch_start(self, trainer, pl_module, batch, batch_idx):
+        # Only print on the very first optimisation step
+        if trainer.global_step == 0 and batch_idx == 0:
+            features, targets = batch
+
+            # ----- ground-truth (absolute) -----
+            gt_abs = targets["trajectory_gt"][0].cpu().numpy()        # (T,3)
+            print("\n[DEBUG] FIRST-BATCH  GT  (first 3 poses):", gt_abs[:3])
+
+            # ----- model output (relative) -----
+            with torch.no_grad():
+                pred_rel = pl_module.agent.forward(features)["trajectory"][0]  # (T,3)
+                pred_rel = pred_rel.cpu().numpy()
+            print("[DEBUG] FIRST-BATCH  PRED (relative, first 3):", pred_rel[:3])
+
+            # ----- convert to absolute for easy comparison -----
+            origin = gt_abs[0:1, :]                    # (1,3)  current pose
+            pred_abs = pred_rel + origin               # broadcast over T
+
+            print("[DEBUG] FIRST-BATCH  PRED (ABS, first 3):", pred_abs[:3])
 
 class CameraImageFeatureBuilder(AbstractFeatureBuilder):
     """
@@ -114,6 +144,8 @@ class EgoFeatureBuilder(AbstractFeatureBuilder):
 
         return {self.get_unique_name(): ego_features}
 
+# --- Target Builder (Corrected) ---
+
 class TrajectoryTargetBuilderGT(AbstractTargetBuilder):
     """
     Target builder for extracting the ground truth future trajectory poses.
@@ -137,56 +169,38 @@ class TrajectoryTargetBuilderGT(AbstractTargetBuilder):
         return "trajectory_gt"
 
     def compute_targets(self, scene: Scene) -> Dict[str, torch.Tensor]:
-        # Get future trajectory (absolute poses)
-        future_trajectory: Trajectory = scene.get_future_trajectory(
+        """
+        Return the future trajectory in absolute map coordinates.
+        """
+
+        # 1) get the future trajectory from the scene
+        future_traj: Trajectory = scene.get_future_trajectory(
             num_trajectory_frames=self._trajectory_sampling.num_poses
         )
 
-        # Handle cases with no or insufficient future poses
-        if future_trajectory is None or future_trajectory.poses is None or future_trajectory.poses.shape[0] < self._trajectory_sampling.num_poses:
-            print(f"Warning: {self.get_unique_name()}: Insufficient future poses found ({future_trajectory.poses.shape[0] if future_trajectory.poses is not None else 0} vs {self._trajectory_sampling.num_poses}). Returning zero placeholder.")
-            return {self.get_unique_name(): torch.zeros(self._trajectory_sampling.num_poses, 3, dtype=torch.float32)}
+        # 2) fallback to zeros if trajectory missing / too short
+        if (future_traj is None or future_traj.poses is None or
+            future_traj.poses.shape[0] < self._trajectory_sampling.num_poses):
+            print(f"{self.get_unique_name()}: insufficient future poses "
+                f"({0 if future_traj is None else future_traj.poses.shape[0]} "
+                f"vs {self._trajectory_sampling.num_poses}). Returning zeros.")
+            return {self.get_unique_name():
+                    torch.zeros(self._trajectory_sampling.num_poses, 3,
+                                dtype=torch.float32)}
 
-        gt_poses_abs = future_trajectory.poses
-        gt_poses_tensor = torch.tensor(gt_poses_abs, dtype=torch.float32)
-        if gt_poses_tensor.shape != (self._trajectory_sampling.num_poses, 3):
-            print(f"{self.get_unique_name()}: shape mismatch, returning zeros")
-            gt_poses_tensor = torch.zeros(self._trajectory_sampling.num_poses, 3)
+        # 3) use absolute poses directly
+        gt_abs = torch.as_tensor(future_traj.poses, dtype=torch.float32)
 
-        return {self.get_unique_name(): gt_poses_tensor}
+        # 4) final safety-check on shape
+        if gt_abs.shape != (self._trajectory_sampling.num_poses, 3):
+            print(f"{self.get_unique_name()}: shape mismatch {gt_abs.shape}, "
+                "returning zeros.")
+            gt_abs = torch.zeros(self._trajectory_sampling.num_poses, 3,
+                                dtype=torch.float32)
 
-        # # Get current pose (last history frame)
-        # if not scene.frames or len(scene.frames) < self._num_history_frames:
-        #     print(f"Warning: {self.get_unique_name()}: Scene has insufficient frames ({len(scene.frames)}) to get current pose at index {self._num_history_frames - 1}. Cannot convert to relative. Returning absolute poses.")
-        #     gt_poses_rel = gt_poses_abs # Fallback
-        # else:
-        #     current_frame_idx = self._num_history_frames - 1
-        #     # Add check for ego_status existence
-        #     if scene.frames[current_frame_idx].ego_status is None or \
-        #        scene.frames[current_frame_idx].ego_status.ego_pose is None:
-        #          print(f"Warning: {self.get_unique_name()}: Ego pose missing for current frame {current_frame_idx}. Cannot convert to relative. Returning absolute poses.")
-        #          gt_poses_rel = gt_poses_abs # Fallback
-        #     else:
-        #          current_ego_pose = scene.frames[current_frame_idx].ego_status.ego_pose
-        #          # Convert absolute future poses to relative poses
-        #          try:
-        #              gt_poses_rel = convert_absolute_to_relative_se2_array(current_ego_pose, gt_poses_abs)
-        #          except Exception as e: # Catch generic exception during conversion
-        #              print(f"Warning: {self.get_unique_name()}: Failed to convert future poses to relative: {e}. Returning absolute poses.")
-        #              gt_poses_rel = gt_poses_abs # Fallback
+        return {self.get_unique_name(): gt_abs}
 
-        # Convert to tensor and ensure correct shape
-        # gt_poses_tensor = torch.tensor(gt_poses_rel, dtype=torch.float32)
-
-        # if gt_poses_tensor.shape[0] != self._trajectory_sampling.num_poses:
-        #     print(f"Warning: {self.get_unique_name()}: Final relative poses shape mismatch ({gt_poses_tensor.shape[0]} \
-        #           vs {self._trajectory_sampling.num_poses}). Returning zero placeholder.")
-        #     return {self.get_unique_name(): torch.zeros(self._trajectory_sampling.num_poses, 3, dtype=torch.float32)}
-
-        # return {self.get_unique_name(): gt_poses_tensor}
-
-
-        
+    
 
 class IJEPAPlanningAgent(AbstractAgent):
     """
@@ -214,6 +228,7 @@ class IJEPAPlanningAgent(AbstractAgent):
         requires_scene: bool = False,
         learning_rate: float = 1e-4,
         loss_criterion: str = "l1",
+        max_epochs: int = 50, # Add max_epochs parameter with a default
     ):
         """
         Initializes the IJEPAPlanningAgent.
@@ -232,6 +247,8 @@ class IJEPAPlanningAgent(AbstractAgent):
         self._use_cls_token = use_cls_token_if_available
         self._learning_rate = learning_rate
         self._loss_criterion_type = loss_criterion
+        self._max_epochs = max_epochs # Store max_epochs
+
 
         self._processor: AutoProcessor = None
         self._ijepa_encoder: AutoModel = None
@@ -264,6 +281,8 @@ class IJEPAPlanningAgent(AbstractAgent):
 
     def initialize(self) -> None:
         print(f"Initializing {self.name()}...")
+        torch.backends.cudnn.benchmark = True
+        torch.set_float32_matmul_precision("high")
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"Using device: {device}")
         self.to(device)
@@ -279,35 +298,57 @@ class IJEPAPlanningAgent(AbstractAgent):
         except Exception as e: # Catch specific exceptions if possible
             raise RuntimeError(f"Failed to load I-JEPA model/processor: {e}") from e
 
-        # Determine Feature Extraction Method
+        # Determine Feature Extraction Method (prefer CLS-token from last_hidden_state)
         with torch.no_grad():
-            try:
-                dummy_input = torch.zeros(1, 3, 224, 224).to(device)
-                outputs = self._ijepa_encoder(pixel_values=dummy_input)
-                if self._use_cls_token and hasattr(outputs, "pooler_output") and outputs.pooler_output is not None:
-                    if outputs.pooler_output.shape[-1] == self.IJEP_DIM: self._feature_extraction_method = "Pooler Output (CLS Token)"
-                    else: print(f"Warning: I-JEPA pooler dim mismatch. Defaulting to Mean Pooling."); self._feature_extraction_method = "Mean Pooling"
-                elif hasattr(outputs, "last_hidden_state"):
-                    if outputs.last_hidden_state.shape[-1] == self.IJEP_DIM: self._feature_extraction_method = "Mean Pooling"
-                    else: print(f"Warning: I-JEPA hidden state dim mismatch."); self._feature_extraction_method = "Unknown"
-                else: self._feature_extraction_method = "Unknown"; print("Warning: Cannot determine I-JEPA feature method.")
-            except Exception as e:
-                self._feature_extraction_method = "Mean Pooling"; print(f"Warning: Error checking I-JEPA output: {e}. Defaulting.")
+            dummy = torch.zeros(1, 3, 224, 224).to(device)
+            outputs = self._ijepa_encoder(pixel_values=dummy)
+            hidden = getattr(outputs, "last_hidden_state", None)
+            pooler = getattr(outputs, "pooler_output", None)
+
+            if self._use_cls_token:
+                # 1) real pooler
+                if pooler is not None and pooler.shape[-1] == self.IJEP_DIM:
+                    self._feature_extraction_method = "Pooler Output"
+                # 2) fallback to first token
+                elif hidden is not None and hidden.shape[-1] == self.IJEP_DIM:
+                    self._feature_extraction_method = "CLS Token"
+                else:
+                    print("Warning: I-JEPA CLS token unavailable; defaulting to Mean Pooling")
+                    self._feature_extraction_method = "Mean Pooling"
+            else:
+                # forced mean-pool
+                self._feature_extraction_method = "Mean Pooling"
+
         print(f"Using I-JEPA feature extraction: {self._feature_extraction_method}")
 
-        # Load Optional MLP Weights
+        # ── Optional MLP-weight loading ─────────────────────────────────────────────
         if self._mlp_weights_path_config:
             weights_path = Path(self._mlp_weights_path_config)
+
             if weights_path.is_file():
                 print(f"Loading MLP weights from: {weights_path}")
+
                 try:
-                    state_dict = torch.load(weights_path, map_location=device)
-                    state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
-                    self.mlp.load_state_dict(state_dict)
-                    print("MLP weights loaded.")
-                except Exception as e: print(f"Warning: Failed to load MLP weights: {e}. Starting fresh.")
-            else: print(f"Warning: MLP weights file not found: {weights_path}. Starting fresh.")
-        else: print("No MLP weights path provided. Starting training from scratch.")
+                    raw = torch.load(weights_path, map_location=device)
+                    state = raw["state_dict"] if "state_dict" in raw else raw     # .ckpt or .pth
+
+                    mlp_state = {
+                        k.replace("agent.mlp.", ""): v
+                        for k, v in state.items()
+                        if k.startswith("agent.mlp.")
+                    }
+
+                    if not mlp_state:
+                        raise ValueError("No 'agent.mlp.' keys found in checkpoint")
+
+                    self.mlp.load_state_dict(mlp_state, strict=False)
+                    print(f"MLP weights loaded: {len(mlp_state)} tensors.")
+                except Exception as e:
+                    print(f"Warning: failed to load MLP weights ({e}). Starting fresh.")
+            else:
+                print(f"Warning: MLP weights file not found: {weights_path}. Starting fresh.")
+        else:
+            print("No MLP weights path provided. Starting training from scratch.")
 
         self.mlp.to(device)
         print(f"{self.name()} initialization complete.")
@@ -355,19 +396,16 @@ class IJEPAPlanningAgent(AbstractAgent):
         # Extract features with Frozen I-JEPA
         visual_features = None
         with torch.no_grad():
-            try:
-                ijepa_outputs = self._ijepa_encoder(pixel_values=processed_pixel_values)
-                if self._feature_extraction_method == "Pooler Output (CLS Token)": visual_features = ijepa_outputs.pooler_output
-                elif self._feature_extraction_method == "Mean Pooling": visual_features = ijepa_outputs.last_hidden_state.mean(dim=1)
-                else: # Fallback
-                    if hasattr(ijepa_outputs, "last_hidden_state"): visual_features = ijepa_outputs.last_hidden_state.mean(dim=1)
-                    else: raise ValueError("Cannot extract I-JEPA features.")
-                if visual_features is None or visual_features.shape[-1] != self.IJEP_DIM: raise ValueError("I-JEPA feature error.")
-            except Exception as e:
-                print(f"Error during I-JEPA extraction: {e}. Returning zero predictions.")
-                batch_size = processed_pixel_values.shape[0] if processed_pixel_values.ndim == 4 else 1
-                zero_preds = torch.zeros(batch_size, self._trajectory_sampling.num_poses, 3, dtype=torch.float32, device=device)
-                return {"trajectory": zero_preds}
+            ijepa_outputs = self._ijepa_encoder(pixel_values=processed_pixel_values)
+            if self._feature_extraction_method == "Pooler Output":
+                visual_features = ijepa_outputs.pooler_output
+            elif self._feature_extraction_method == "CLS Token":
+                # take the [CLS] embedding
+                visual_features = ijepa_outputs.last_hidden_state[:, 0, :]
+            else:  # Mean Pooling
+                visual_features = ijepa_outputs.last_hidden_state.mean(dim=1)
+            if visual_features is None or visual_features.shape[-1] != self.IJEP_DIM:
+                raise ValueError("I-JEPA feature extraction failed.")
 
         # Predict with MLP
         try:
@@ -383,26 +421,138 @@ class IJEPAPlanningAgent(AbstractAgent):
 
         return {"trajectory": predicted_relative_poses}
 
-    def compute_loss(self, features: Dict[str, torch.Tensor], targets: Dict[str, torch.Tensor], predictions: Dict[str, torch.Tensor]) -> torch.Tensor:
-        if self.criterion is None: raise RuntimeError("Loss criterion not initialized.")
-        device = next(self.parameters()).device
 
+    def compute_loss(
+        self,
+        features: Dict[str, torch.Tensor],
+        targets:  Dict[str, torch.Tensor],
+        predictions: Dict[str, torch.Tensor],
+    ) -> torch.Tensor:
+        if self.criterion is None:
+            raise RuntimeError("Loss criterion not initialized.")
+
+        device = next(self.parameters()).device       # <- reliable device
+
+        # ---------------------------------------------------------------
+        # 1) fetch tensors
+        # ---------------------------------------------------------------
         try:
-            ground_truth = targets["trajectory_gt"].to(device)
-            predicted = predictions["trajectory"].to(device)
-        except KeyError as e: raise KeyError(f"Missing key for loss computation: {e}") from e
+            gt_abs   = targets["trajectory_gt"].to(device)       # (B,T,3) absolute
+            pred_rel = predictions["trajectory"].to(device)      # (B,T,3) relative
+        except KeyError as e:
+            raise KeyError(f"Missing key for loss computation: {e}") from e
 
-        if predicted.shape != ground_truth.shape:
-            print(f"Warning: Shape mismatch in compute_loss: Pred {predicted.shape}, GT {ground_truth.shape}. Returning zero loss.")
+        if pred_rel.shape != gt_abs.shape:
+            print(f"Shape mismatch: pred {pred_rel.shape}, gt {gt_abs.shape}")
             return torch.tensor(0.0, device=device, requires_grad=True)
 
-        loss = self.criterion(predicted, ground_truth)
+        # ---------------------------------------------------------------
+        # 2) add current-frame (x,y) origin to convert rel → abs
+        #    origin comes from ego_features: [vx, vy, ax, ay, cmd0..3]
+        #    we stored *velocities* there, not positions, so instead we
+        #    derive origin from GT itself (first pose) — safest & frame-correct
+        # ---------------------------------------------------------------
+        origin = gt_abs[:, 0:1, :]       # (B,1,3)
+        pred_abs = pred_rel + origin     # broadcasts over time
+
+        # ---------------------------------------------------------------
+        # 3) loss between absolute predictions and absolute GT
+        # ---------------------------------------------------------------
+        loss = self.criterion(pred_abs, gt_abs)
         return loss
 
-    def get_optimizers(self) -> Union[Optimizer, Dict[str, Union[Optimizer, LRScheduler]]]:
+    def get_optimizers(self) -> Dict[str, Union[Optimizer, LRScheduler]]:
         if self.mlp is None: raise RuntimeError("MLP head not initialized.")
-        # Optimize only MLP parameters
-        return torch.optim.AdamW(self.mlp.parameters(), lr=self._learning_rate)
+
+        # Optimizer (only MLP parameters)
+        optimizer = torch.optim.AdamW(self.mlp.parameters(), lr=self._learning_rate)
+
+        # --- ADD Scheduler ---
+        # Use the stored max_epochs for T_max
+        # Cosine Annealing scheduler
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=self._max_epochs, # Use the value passed via config
+            eta_min=self._learning_rate * 0.01 # Decay to 1% of initial LR (common)
+            #eta_min=1e-6 # Alternative fixed minimum
+        )
+        # --- END ADD Scheduler ---
+
+        # Return as a dictionary for Lightning
+        opt_dict = {
+            'optimizer': optimizer,
+            'lr_scheduler': {
+                'scheduler': scheduler,
+                'interval': 'epoch', # Call scheduler.step() at the end of every epoch
+                'frequency': 1,
+            }
+        }
+
+        # Add a print statement here for verification if needed
+        print(f"INFO: Using the following optimizer setup {opt_dict}")
+
+        return opt_dict
 
     def get_training_callbacks(self) -> List[pl.Callback]:
-        return [] # No agent-specific callbacks defined here
+        return [ FirstBatchDebugger() ] 
+    
+
+
+
+# def compute_targets(self, scene: Scene) -> Dict[str, torch.Tensor]:
+    #     future_trajectory: Trajectory = scene.get_future_trajectory(
+    #         num_trajectory_frames=self._trajectory_sampling.num_poses
+    #     )
+
+    #     if future_trajectory is None or future_trajectory.poses is None or future_trajectory.poses.shape[0] < self._trajectory_sampling.num_poses:
+    #         print(f"{self.get_unique_name()}: Insufficient future poses found ({future_trajectory.poses.shape[0] if future_trajectory.poses is not None else 0} vs {self._trajectory_sampling.num_poses}). Returning zero placeholder.")
+    #         return {self.get_unique_name(): torch.zeros(self._trajectory_sampling.num_poses, 3, dtype=torch.float32)}
+
+    #     gt_poses_abs = future_trajectory.poses
+
+    #     current_frame_idx = self._num_history_frames - 1
+    #     current_ego_pose_for_conversion: Optional[StateSE2] = None # Use Optional and type hint
+    #     gt_poses_rel = gt_poses_abs # Default fallback
+
+    #     if not scene.frames or len(scene.frames) <= current_frame_idx: # Use <= for correct index check
+    #         print(f"{self.get_unique_name()}: Scene has insufficient frames ({len(scene.frames)}) to get current pose at index {current_frame_idx}. Cannot convert to relative. Returning absolute poses.")
+    #     elif scene.frames[current_frame_idx].ego_status is None:
+    #         print(f"{self.get_unique_name()}: Ego status missing for current frame {current_frame_idx}. Cannot convert to relative. Returning absolute poses.")
+    #     elif scene.frames[current_frame_idx].ego_status.ego_pose is None:
+    #          print(f"{self.get_unique_name()}: Ego pose data missing for current frame {current_frame_idx}. Cannot convert to relative. Returning absolute poses.")
+    #     else:
+    #         raw_ego_pose_data = scene.frames[current_frame_idx].ego_status.ego_pose
+
+    #         # --- Robust conversion: take first three elements if it's an array ---
+    #         if isinstance(raw_ego_pose_data, np.ndarray) and raw_ego_pose_data.size >= 3:
+    #             x, y, heading = float(raw_ego_pose_data.flat[0]), float(raw_ego_pose_data.flat[1]), float(raw_ego_pose_data.flat[2])
+    #             current_ego_pose_for_conversion = StateSE2(x=x, y=y, heading=heading)
+    #         elif isinstance(raw_ego_pose_data, StateSE2):
+    #             current_ego_pose_for_conversion = raw_ego_pose_data
+    #         else:
+    #             print(f"{self.get_unique_name()}: Unexpected ego pose format: {type(raw_ego_pose_data)}. Cannot convert to relative. Returning absolute poses.")                
+
+    #         # --- MODIFICATION ENDS HERE ---
+
+    #         # Convert absolute future poses to relative poses if we have a valid current pose object
+    #         if current_ego_pose_for_conversion is not None:
+    #              try:
+    #                  # Now call the conversion function with the correctly formatted StateSE2 object
+    #                  gt_poses_rel = convert_absolute_to_relative_se2_array(current_ego_pose_for_conversion, gt_poses_abs)
+    #              except Exception as e: # Catch generic exception during conversion
+    #                  print(f"{self.get_unique_name()}: Failed to convert future poses to relative using StateSE2 object: {e}. Returning absolute poses.")
+    #                  gt_poses_rel = gt_poses_abs # Fallback in case conversion fails even with correct object type
+
+    #     # Convert to tensor and ensure correct shape
+    #     gt_poses_tensor = torch.tensor(gt_poses_rel, dtype=torch.float32)
+
+    #     # Final shape check (optional, but good practice)
+    #     # The utility function convert_absolute_to_relative_se2_array returns an array
+    #     # of shape (N, 3) if the input state_se2_array is (N, 3). This shape check
+    #     # confirms the number of poses matches what was requested.
+    #     if gt_poses_tensor.shape != (self._trajectory_sampling.num_poses, 3):
+    #          print(f"{self.get_unique_name()}: Final poses tensor shape mismatch after processing ({gt_poses_tensor.shape} vs {(self._trajectory_sampling.num_poses, 3)}). Returning zero placeholder.")
+    #          return {self.get_unique_name(): torch.zeros(self._trajectory_sampling.num_poses, 3, dtype=torch.float32)}
+
+
+    #     return {self.get_unique_name(): gt_poses_tensor}
