@@ -41,6 +41,8 @@ from navsim.planning.training.abstract_feature_target_builder import (
     AbstractTargetBuilder,
 )
 
+# --- Feature Builders ---
+
 def rel_to_abs(pred_rel, gt_abs):
     origin = gt_abs[:, 0:1, :]             # (B,1,3)
     return pred_rel + origin     
@@ -69,6 +71,23 @@ class FirstBatchDebugger(pl.Callback):
 
             print("[DEBUG] FIRST-BATCH  PRED (ABS, first 3):", pred_abs[:3])
 
+class BatchInspector(pl.Callback):
+    def on_train_batch_end(self, trainer, pl_module, outputs, batch, batch_idx):
+        if batch_idx % 100 == 0: # Log every 100 batches
+            features, targets = batch
+            loss = outputs
+
+            # Example: Print shapes
+            print(f"\n[Batch {batch_idx}] Images shape: {features['front_camera_image']}")
+            print(f"[Batch {batch_idx}] Ego features shape: {features['ego_features']}")
+            print(f"[Batch {batch_idx}] Targets shape: {targets['trajectory_gt']}")
+            print(f"[Batch {batch_idx}] Loss shape: {loss}")
+
+            # Example: Print parts of first sample (move to CPU/Numpy if needed)
+            print(f"[Batch {batch_idx}] First ego features: {features['ego_features'][0,:].cpu().numpy()}")
+            # ... and so on
+
+
 class CameraImageFeatureBuilder(AbstractFeatureBuilder):
     """
     Feature builder for extracting the front camera image.
@@ -96,12 +115,76 @@ class EgoFeatureBuilder(AbstractFeatureBuilder):
     Feature builder for extracting ego status features (velocity, acceleration, driving command).
     Formats the driving command (expected as npt.NDArray[np.int] or int) into a one-hot vector.
     """
-    NUM_DRIVING_COMMANDS = 4 # Based on agent's EGO_DIM
+    def __init__(self, num_history_frames: int = 4): # Add num_history_frames parameter
+        """
+        Initializes the EgoFeatureBuilder.
+        :param num_history_frames: The number of history frames to include in the feature vector.
+        """
+        super().__init__()
+        self._num_history_frames = num_history_frames
+        self.NUM_DRIVING_COMMANDS = 4 # Keep this constant here or make it a class constant if preferred
 
     def get_unique_name(self) -> str:
         return "ego_features"
 
+    # Ego feature builder for 4 num history frames
     def compute_features(self, agent_input: AgentInput) -> Dict[str, torch.Tensor]:
+        # Check if there's enough history
+        if not agent_input.ego_statuses or len(agent_input.ego_statuses) < self._num_history_frames:
+            print(f"Warning: {self.get_unique_name()}: Insufficient ego history frames ({len(agent_input.ego_statuses)} \
+                  vs {self._num_history_frames}). Returning zero placeholder.")
+            # Calculate the expected output size: (velocity + acceleration + command) * num_history_frames
+            expected_output_size = (2 + 2 + self.NUM_DRIVING_COMMANDS) * self._num_history_frames
+            return {self.get_unique_name(): torch.zeros(expected_output_size, dtype=torch.float32)}
+
+        # Process the last num_history_frames
+        history_ego_features_list = []
+        # Iterate backward through the history list, or slice the last N frames
+        # Slicing [-self._num_history_frames:] gets the last N frames
+        # We iterate forward through this slice to maintain chronological order in the concatenated vector
+        for i, ego_status in enumerate(agent_input.ego_statuses[-self._num_history_frames:]):
+            velocity = torch.tensor(ego_status.ego_velocity, dtype=torch.float32) # Shape [2]
+            acceleration = torch.tensor(ego_status.ego_acceleration, dtype=torch.float32) # Shape [2]
+            command_raw = ego_status.driving_command
+            command_one_hot = torch.zeros(self.NUM_DRIVING_COMMANDS, dtype=torch.float32) # Shape [NUM_DRIVING_COMMANDS]
+
+            # --- Robust command handling (same logic as before) ---
+            try:
+                if isinstance(command_raw, np.ndarray):
+                    if command_raw.size == 1:
+                        command_index = int(command_raw.item())
+                        if 0 <= command_index < self.NUM_DRIVING_COMMANDS: command_one_hot[command_index] = 1.0
+                    elif command_raw.size == self.NUM_DRIVING_COMMANDS:
+                        command_one_hot = torch.from_numpy(command_raw).float()
+                    else: print(f"Warning: Builder: Unexpected numpy array size {command_raw.shape} for history frame {i}.")
+                elif isinstance(command_raw, (int, float)):
+                    command_index = int(command_raw)
+                    if 0 <= command_index < self.NUM_DRIVING_COMMANDS: command_one_hot[command_index] = 1.0
+                    else: print(f"Warning: Builder: Invalid command index {command_index} for history frame {i}.")
+                elif isinstance(command_raw, (list, tuple)) and len(command_raw) == self.NUM_DRIVING_COMMANDS:
+                    command_one_hot = torch.tensor(command_raw, dtype=torch.float32)
+                else: print(f"Warning: Builder: Unexpected command format {type(command_raw)} for history frame {i}.")
+            except Exception as e:
+                print(f"Error processing driving command '{command_raw}' for history frame {i}: {e}. Using zero vector.")
+                command_one_hot = torch.zeros(self.NUM_DRIVING_COMMANDS, dtype=torch.float32)
+            # --- End robust command handling ---
+
+            # Concatenate features for the current historical frame [vel_x, vel_y, acc_x, acc_y, cmd_0, cmd_1, cmd_2, cmd_3]
+            current_frame_features = torch.cat([velocity, acceleration, command_one_hot], dim=-1) # Shape [2+2+NUM_DRIVING_COMMANDS = 8]
+            history_ego_features_list.append(current_frame_features)
+
+        # Concatenate features ACROSS the history dimension (flattening the history)
+        ego_features = torch.cat(history_ego_features_list, dim=-1) # Shape [num_history_frames * (2+2+NUM_DRIVING_COMMANDS)]
+
+        # Final safety check on shape - should match the expected concatenated size
+        expected_output_size = (2 + 2 + self.NUM_DRIVING_COMMANDS) * self._num_history_frames
+        if ego_features.shape[-1] != expected_output_size:
+            print(f"Warning: Builder: Final ego features dim mismatch {ego_features.shape[-1]} vs expected {expected_output_size}. Returning zero placeholder.")
+            return {self.get_unique_name(): torch.zeros(expected_output_size, dtype=torch.float32)}
+
+        return {self.get_unique_name(): ego_features}
+
+    '''def compute_features(self, agent_input: AgentInput) -> Dict[str, torch.Tensor]:
         if not agent_input.ego_statuses or len(agent_input.ego_statuses) == 0:
             print(f"Warning: {self.get_unique_name()}: Ego status missing. Returning zero placeholder.")
             return {self.get_unique_name(): torch.zeros(self.NUM_DRIVING_COMMANDS + 4, dtype=torch.float32)}
@@ -140,7 +223,7 @@ class EgoFeatureBuilder(AbstractFeatureBuilder):
              print(f"Warning: Builder: Final ego features dim mismatch {ego_features.shape[-1]}.")
              return {self.get_unique_name(): torch.zeros(self.NUM_DRIVING_COMMANDS + 4, dtype=torch.float32)}
 
-        return {self.get_unique_name(): ego_features}
+        return {self.get_unique_name(): ego_features}'''
 
 # --- Target Builder (Corrected) ---
 
@@ -198,7 +281,6 @@ class TrajectoryTargetBuilderGT(AbstractTargetBuilder):
 
         return {self.get_unique_name(): gt_abs}
 
-    
 
 class IJEPAPlanningAgent(AbstractAgent):
     """
@@ -208,7 +290,7 @@ class IJEPAPlanningAgent(AbstractAgent):
     # --- Constants ---
     NUM_FUTURE_FRAMES = 8 # Should match trajectory_sampling num_poses
     IJEP_DIM = 1280
-    EGO_DIM = 8
+    
     HIDDEN_DIM = 256
     NUM_DRIVING_COMMANDS = 4
     # --- End Constants ---
@@ -239,6 +321,8 @@ class IJEPAPlanningAgent(AbstractAgent):
 
         # CHANGE: Store num_history_frames
         self._num_history_frames = num_history_frames
+        self.EGO_DIM = (2 + 2 + self.NUM_DRIVING_COMMANDS) * self._num_history_frames
+
 
         self._mlp_weights_path_config = mlp_weights_path
         self._ijepa_model_id = ijepa_model_id
@@ -356,10 +440,9 @@ class IJEPAPlanningAgent(AbstractAgent):
         return SensorConfig(cam_f0=True, cam_l0=False, cam_l1=False, cam_l2=False, cam_r0=False, cam_r1=False, cam_r2=False, cam_b0=False, lidar_pc=False)
 
     def get_feature_builders(self) -> List[AbstractFeatureBuilder]:
-        return [CameraImageFeatureBuilder(), EgoFeatureBuilder()]
+        return [CameraImageFeatureBuilder(), EgoFeatureBuilder(num_history_frames=self._num_history_frames)]
 
     def get_target_builders(self) -> List[AbstractTargetBuilder]:
-        # CHANGE: Pass num_history_frames to the builder instance
         return [TrajectoryTargetBuilderGT(trajectory_sampling=self._trajectory_sampling,
                                          num_history_frames=self._num_history_frames)]
 
@@ -492,7 +575,7 @@ class IJEPAPlanningAgent(AbstractAgent):
         return opt_dict
 
     def get_training_callbacks(self) -> List[pl.Callback]:
-        return [ FirstBatchDebugger() ] 
+        return []
     
 
 
