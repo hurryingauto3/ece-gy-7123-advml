@@ -337,7 +337,10 @@ class IJEPAPlanningAgent(AbstractAgent):
 
         # Define MLP
         self.mlp = torch.nn.Sequential(
-            torch.nn.Linear(self.IJEP_DIM + C self.HIDDEN_DIM),
+            torch.nn.Linear(self.IJEP_DIM + self.EGO_DIM, self.HIDDEN_DIM),
+            torch.nn.ReLU(),
+            torch.nn.LayerNorm(self.HIDDEN_DIM),
+            torch.nn.Linear(self.HIDDEN_DIM, self.HIDDEN_DIM),
             torch.nn.ReLU(),
             torch.nn.LayerNorm(self.HIDDEN_DIM),
             torch.nn.Linear(self.HIDDEN_DIM, self.HIDDEN_DIM),
