@@ -62,7 +62,7 @@ ENV PATH /opt/conda/envs/navsim/bin:$PATH
 # Note: Activate is needed here as SHELL doesn't persist environment activation between RUNs in the same way
 RUN source activate navsim && \
     pip install --no-cache-dir -e navsim && \
-    conda install -y jupyter ipykernel notebook ipywidgets && \
+    conda install -y transformers jupyter ipykernel notebook ipywidgets && \
     python -m ipykernel install --user --name=navsim
 
 # --- Install VS Code Server ---

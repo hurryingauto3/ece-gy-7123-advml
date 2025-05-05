@@ -2,7 +2,7 @@ services:
   navsim:
     # Optional: Build context if Dockerfile is in the same directory
     # build: .
-    shm_size: 16g
+    shm_size: 16g 
     image: gcr.io/nyumlstudy/navsim-notebook:latest # Use the image you built with the Dockerfile above
     container_name: navsim
     ports:
@@ -12,11 +12,11 @@ services:
     # Mount local directories to the container
       # Adjust the paths as necessary for your local setup
       # Example: Mounting a dataset directory and code directory
-      # .path_to_your_local_dataset:/navsim_workspace/dataset
       # .path_to_your_local_code:/navsim_workspace/code
-      - ./dataset:/navsim_workspace/dataset
-      - ./code:/navsim_workspace/code
-      - ./exp:/navsim_workspace/exp
+      - /mnt/dataset:/navsim_workspace/dataset
+      - /home/aliha/code:/navsim_workspace/code
+      - /home/aliha/exp:/navsim_workspace/exp
+      - /home/aliha/navsim:/navsim_workspace/navsim
       # Add any other necessary volumes
     # --- GPU Configuration ---
     deploy:
