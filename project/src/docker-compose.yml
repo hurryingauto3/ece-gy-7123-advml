@@ -19,15 +19,15 @@ services:
       - /home/aliha/navsim:/navsim_workspace/navsim
       # Add any other necessary volumes
     # --- GPU Configuration ---
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              # Request all available GPUs. Change 'all' to a specific count if needed (e.g., count: 1)
-              # Or specify specific GPU IDs: device_ids: ['0', '1']
-              count: all
-              capabilities: [gpu] # Essential capability
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           # Request all available GPUs. Change 'all' to a specific count if needed (e.g., count: 1)
+    #           # Or specify specific GPU IDs: device_ids: ['0', '1']
+    #           count: all
+    #           capabilities: [gpu] # Essential capability
     # Optional: Keep container running if entrypoint exits
     # tty: true
     # stdin_open: true

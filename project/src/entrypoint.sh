@@ -13,7 +13,7 @@ if [ ! -d "$DATASET_DIR" ] || [ -z "$(ls -A "$DATASET_DIR")" ]; then
     /navsim_workspace/navsim/download/download_warmup_synthetic_scenes.sh
     /navsim_workspace/navsim/download/download_test.sh
     /navsim_workspace/navsim/download/download_navtrain.sh
-    /navsim_workspace/navsim/download/download_trainval.sh
+    # /navsim_workspace/navsim/download/download_trainval.sh
 else
     echo "[INFO] Dataset already exists at $DATASET_DIR. Skipping download."
 fi
