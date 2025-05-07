@@ -13,7 +13,7 @@ services:
       # Adjust the paths as necessary for your local setup
       # Example: Mounting a dataset directory and code directory
       # .path_to_your_local_code:/navsim_workspace/code
-      - /mnt/dataset:/navsim_workspace/dataset
+      - /mnt/dataset:/navsim_workspace/dataset:rw,rshared
       - /home/aliha/code:/navsim_workspace/code
       - /home/aliha/exp:/navsim_workspace/exp
       - /home/aliha/navsim:/navsim_workspace/navsim
