@@ -28,7 +28,7 @@ services:
               # Or specify specific GPU IDs: device_ids: ['0', '1']
               count: all
               capabilities: [gpu] # Essential capability
-    Optional: Keep container running if entrypoint exits
+    # Optional: Keep container running if entrypoint exits
     tty: true
     stdin_open: true
     # --- Environment variables if needed specifically at runtime ---
